@@ -1,1 +1,1 @@
-Machine Reading for Question Answering (MRQA) Workshop Website
+Efficient Open-Domain Question Answering - Competition Website.
