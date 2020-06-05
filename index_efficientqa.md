@@ -65,9 +65,9 @@ performed on the basis of this human eval.
 
 ## Organizers
 
-*   [Adam Roberts](https://research.Google Research/people/104881/), Google
+*   [Adam Roberts](https://research.google/people/104881/), Google
     Research
-*   [Chris Alberti](https://research.Google Research/people/ChrisAlberti/),
+*   [Chris Alberti](https://research.google/people/ChrisAlberti/),
     Google Research
 *   [Colin Raffel](https://colinraffel.com/), Google Research / University of
     North Carolina
@@ -76,16 +76,16 @@ performed on the basis of this human eval.
     Austin
 *   [Hannaneh Hajishirzi](https://homes.cs.washington.edu/~hannaneh/),
     University of Washington
-*   [Jennimaria Palomaki](https://research.Google Research/people/105807/),
+*   [Jennimaria Palomaki](https://research.google/people/105807/),
     Google Research
 *   [Jordan Boyd-Graber](http://users.umiacs.umd.edu/~jbg/), University of
     Maryland
 *   [Kelvin Guu](http://kelvinguu.com/), Google Research
 *   [Kenton Lee](https://kentonl.com/), Google Research
-*   [Michael Collins](https://research.Google Research/people/MichaelCollins/),
+*   [Michael Collins](https://research.google/people/MichaelCollins/),
     Google Research
 *   [Sewon Min](https://shmsw25.github.io/), University of Washington
-*   [Tom Kwiatkowski](https://research.Google Research/people/105075/), Google
+*   [Tom Kwiatkowski](https://research.google/people/105075/), Google
     Research
 
 ## Contact
