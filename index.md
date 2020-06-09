@@ -1,3 +1,10 @@
+---
+layout: main
+title: Home
+order: 1
+collection: pages_2020
+---
+
 # Efficient Open-Domain Question Answering
 
 Open domain question answering is emerging as a benchmark method of measuring

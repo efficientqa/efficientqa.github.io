@@ -9,15 +9,13 @@ lsi: false
 markdown: kramdown
 
 ### content configuration ###
-title:       "Workshop on Machine Reading for Question Answering (MRQA)"
-keywords:    "workshop, machine reading, question answering, reading comprehension"
-description: "The official website for the Workshop on Machine Reading for Question Answering"
+title:       "Efficient Open-Domain Question Answering"
+keywords:    "question answering, machine learning, knowledge representation, deep learning, neurips"
+description: "The official website for the open domain question answering challenge at NeurIPS 2020."
 favicon:     #put a path like: "img/favicon.ico"
 touch_icon:  #put a path like: "img/apple-touch-icon.png"
 
 collections:
-  - pages_2019
-  - pages_2018
-  - pages_2019_rc
+  - pages_2020
 
 theme: jekyll-theme-minimal
