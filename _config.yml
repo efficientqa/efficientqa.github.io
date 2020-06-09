@@ -19,3 +19,5 @@ collections:
   - pages_2019
   - pages_2018
   - pages_2019_rc
+
+theme: jekyll-theme-minimal
