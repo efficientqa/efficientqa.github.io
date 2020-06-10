@@ -1,29 +1,18 @@
-<!-- --- -->
-<!-- layout: main -->
-<!-- title: Home -->
-<!-- order: 1 -->
-<!-- collection: pages_2020 -->
-<!-- --- -->
-
-# Efficient Open-Domain Question Answering
-
 Open domain question answering is emerging as a benchmark method of measuring
 computational systems' abilities to read, represent, and retrieve knowledge
 expressed in all of the documents on the web.
 
-In this competition, to culminate at
-[NeurIPS 2020](https://neurips.cc/Conferences/2020), contestants will develop a
-question answering system that contains all of the knowledge required to answer
-open-domain questions. There are no constraints on how the knowledge is
-stored---it could be in documents, databases, the parameters of a neural
-network, or any other form. However, three competition tracks encourage systems
-that store and access this knowledge using the smallest number of bytes,
-including code, corpora, and model parameters. There will also be an
-unconstrained track, in which the goal is to achieve the best possible question
-answering performance with no constraints. The best performing systems from each
-of the tracks will be put to test in a live competition against trivia experts
-during the
-[NeurIPS 2020 competition days](https://neurips.cc/Conferences/2020/CompetitionTrack).
+In this competition contestants will develop a question answering system that
+contains all of the knowledge required to answer open-domain questions. There
+are no constraints on how the knowledge is stored---it could be in documents,
+databases, the parameters of a neural network, or any other form. However, three
+competition tracks encourage systems that store and access this knowledge using
+the smallest number of bytes, including code, corpora, and model
+parameters. There will also be an unconstrained track, in which the goal is to
+achieve the best possible question answering performance with no
+constraints. The best performing systems from each of the tracks will be put to
+test in a live competition against trivia experts during the [NeurIPS 2020
+competition track](https://neurips.cc/Conferences/2020/CompetitionTrack).
 
 ## Competition Overview
 
@@ -45,7 +34,7 @@ upload their systems to our servers, where they will be run in a sandboxed
 environment, without access to any external resources. In these three tracks,
 the goal is to create:
 
-*   The best performing system under 5Gb,
+*   The best performing system under 6Gb,
 *   The best performing system under 500Mb,
 *   The smallest system that achieves 25% accuracy.
 
