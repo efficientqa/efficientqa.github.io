@@ -34,8 +34,9 @@ upload their systems to our servers, where they will be run in a sandboxed
 environment, without access to any external resources. In these three tracks,
 systems will be ranked according to both their accuracy and their size.
 
-! Full details of the task definition, tutorials based on existing systems, and
-a pointer to the leaderboard will be added to this site by the end of June 2020.
+:information_source: Full details of the task definition, tutorials based on
+existing systems, and a pointer to the leaderboard will be added to this site by
+the end of June 2020.
 
 ### Human Evaluation
 
@@ -47,7 +48,7 @@ performed on the basis of this human eval.
 
 ## Important Dates
 
-! More details coming soon.
+:information_source: More information coming soon.
 
 |                            |                                                 |
 |:-------------------------- |:------------------------------------------------|
