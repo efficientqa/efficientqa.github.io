@@ -32,13 +32,9 @@ submissions will be ranked according to the accuracy of their predictions alone.
 There are also three *restricted* tracks in which contestants will have to
 upload their systems to our servers, where they will be run in a sandboxed
 environment, without access to any external resources. In these three tracks,
-the goal is to create:
+systems will be ranked according to both their accuracy and their size.
 
-*   The best performing system under 6Gb,
-*   The best performing system under 500Mb,
-*   The smallest system that achieves 25% accuracy.
-
-Full details of the task definition, tutorials based on existing systems, and a
+!Full details of the task definition, tutorials based on existing systems, and a
 pointer to the leaderboard will be added to this site by the end of June 2020.
 
 ### Human Evaluation
@@ -51,12 +47,12 @@ performed on the basis of this human eval.
 
 ## Important Dates
 
+!More details coming soon.
+
 |                            |                                                 |
 |:-------------------------- |:------------------------------------------------|
-**June 30, 2020**            | Leaderboard launched.
-**October 14, 2020**         | Leaderboard frozen.
-**October 14, 2020**         | Test questions for unrestricted track released.
-**October 15, 2020**         | Test predictions for unrestricted track due.
+**June, 2020**               | Leaderboard launched.
+**October, 2020**            | Leaderboard frozen.
 **November 14, 2020** &emsp; | Human evaluation completed and winners announced.
 
 ## Organizers
