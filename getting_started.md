@@ -72,7 +72,7 @@ python3 run_inference.py \
 
 This section provides pointers on how to reproduce the experiments on the purely generative approach to "closed-book question answering" with [T5](https://ai.googleblog.com/2020/02/exploring-transfer-learning-with-t5.html) detailed in [How Much Knowledge Can You Pack Into the Parameters of a Language Model?](https://arxiv.org/abs/2002.08910) (Roberts, et al. 2020).
 
-This approach fine-tunes a large language model ([T5](https://github.com/google-research/text-to-text-transfer-transformer)) to solve QA tasks using only the knowledge stored in its parameters during unsupervised pre-training over a large corpus based on Common Crawl ([C4](http://tensorflow.org/datasets/catalog/c4)).
+This approach fine-tunes a large language model ([T5](https://github.com/google-research/text-to-text-transfer-transformer)) to solve QA tasks using only the knowledge stored in its parameters based on unsupervised pre-training over a large corpus based on Common Crawl ([C4](http://tensorflow.org/datasets/catalog/c4)).
 
 Instructions for fine-tuning the T5 model on Natural Questions can be found at https://github.com/google-research/google-research/tree/master/t5_closed_book_qa, along with already fine-tuned checkpoints. The repository itself provides an example for how to create new pre-training and fine-tuning tasks with the T5 library. An example for how to interactively call the T5 repo be found in the [T5 Colab](https://tiny.cc/t5-colab), which also trains on Natural Questions but lacks some of the improvements implemented in the CBQA repo. 
 
