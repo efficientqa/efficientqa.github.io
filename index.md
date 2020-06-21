@@ -32,11 +32,20 @@ submissions will be ranked according to the accuracy of their predictions alone.
 There are also three *restricted* tracks in which contestants will have to
 upload their systems to our servers, where they will be run in a sandboxed
 environment, without access to any external resources. In these three tracks,
-systems will be ranked according to both their accuracy and their size.
+the goal is to build:
 
-**Full details of the task definition, tutorials based on
-existing systems, and a pointer to the leaderboard will be added to this site by
-the end of June 2020.**
+* the most accurate self-contained question answering system under 6Gb,
+* the most accurate self-contained question answering system under 500Mb,
+* the smallest self-contained question answering system that achieves 25%
+  accuracy.
+
+We will award prizes for the top performing submissions to each of these
+restricted tracks.
+
+To be notified when the leaderboard is launched, in July 2020, and for up to
+date information on the competition and workshop, please [sign up to our mailing
+list](https://efficientqa.github.io/sign_up_for_notifications.html).
+
 
 ### Human Evaluation
 
@@ -48,13 +57,13 @@ performed on the basis of this human eval.
 
 ## Important Dates
 
-**More information coming soon.**
-
-|                            |                                                 |
-|:-------------------------- |:------------------------------------------------|
-**June, 2020**               | Leaderboard launched.
-**October, 2020**            | Leaderboard frozen.
-**November 14, 2020** &emsp; | Human evaluation completed and winners announced.
+|                               |                                                 |
+|:------------------------------|:------------------------------------------------|
+**July, 2020**                  | Leaderboard launched.
+**October 14, 2020**            | Leaderboard frozen.
+**November 14, 2020**           | Human evaluation completed and winners announced.
+**December 11-12, 2020** &emsp; | NeurIPS workshop and human-computer
+competition (held virtually).
 
 ## Organizers
 
