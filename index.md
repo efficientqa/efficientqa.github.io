@@ -57,6 +57,7 @@ performed on the basis of this human eval.
 
 ## Important Dates
 
+|                                 |                                                                   |
 |:--------------------------------|:------------------------------------------------------------------|
 | **July, 2020**                  | Leaderboard launched.                                             |
 | **October 14, 2020**            | Leaderboard frozen.                                               |
