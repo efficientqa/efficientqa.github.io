@@ -57,13 +57,12 @@ performed on the basis of this human eval.
 
 ## Important Dates
 
-|                               |                                                 |
-|:------------------------------|:------------------------------------------------|
-**July, 2020**                  | Leaderboard launched.
-**October 14, 2020**            | Leaderboard frozen.
-**November 14, 2020**           | Human evaluation completed and winners announced.
-**December 11-12, 2020** &emsp; | NeurIPS workshop and human-computer
-competition (held virtually).
+|                                 |                                                                  |
+|:--------------------------------|:-----------------------------------------------------------------|
+| **July, 2020**                  | Leaderboard launched.                                            |
+| **October 14, 2020**            | Leaderboard frozen.                                              |
+| **November 14, 2020**           | Human evaluation completed and winners announced.                |
+| **December 11-12, 2020** &emsp; | NeurIPS workshop and human-computer competition (held virtually).|
 
 ## Organizers
 
