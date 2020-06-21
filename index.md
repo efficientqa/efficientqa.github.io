@@ -51,13 +51,12 @@ list](https://efficientqa.github.io/sign_up_for_notifications.html).
 
 In practice, five reference answers are sometimes not enough---there are a lot
 of ways in which an answer can be phrased, and sometimes there are multiple
-valid answers. At the culmination of this competition, the predictions from the
+valid answers. At the end of this competition's submission period, predictions from the
 best performing systems will be checked by humans. The final ranking will be
 performed on the basis of this human eval.
 
 ## Important Dates
 
-|                               |                                                 |
 |:------------------------------|:------------------------------------------------|
 **July, 2020**                  | Leaderboard launched.
 **October 14, 2020**            | Leaderboard frozen.
