@@ -39,8 +39,11 @@ the goal is to build:
 * the smallest self-contained question answering system that achieves 25%
   accuracy.
 
-We will award prizes for the top performing submissions to each of these
-restricted tracks.
+We will award prizes to the teams that create the top performing submissions
+in each restricted track.
+
+For more information on the task definition, data, and evaluation please
+[go here](https://efficientqa.github.io/task_definition.html)
 
 To be notified when the leaderboard is launched, in July 2020, and for up to
 date information on the competition and workshop, please [sign up to our mailing
@@ -54,6 +57,12 @@ of ways in which an answer can be phrased, and sometimes there are multiple
 valid answers. At the end of this competition's submission period, predictions from the
 best performing systems will be checked by humans. The final ranking will be
 performed on the basis of this human eval.
+
+## Getting Started with Existing Baselines
+We have provided instructions for getting started on the NQ-open task with
+existing systems that either generate answers directly, from a neural network,
+or extract them from a corpus of text. You can find the baselines' instructions 
+[here](https://efficientqa.github.io/getting_started.html). 
 
 ## Important Dates
 
