@@ -33,7 +33,7 @@ cd ..
 git clone https://github.com/efficientqa/retrieval-based-baselines.git && cd retrieval-based-baselines && pip3 install -r requirements.txt
 ```
 
-Let `${base_dir}` as your base directory to store data and pretrained models. (For example, run `export base_dir="data".)
+Let `${base_dir}` as your base directory to store data and pretrained models. (For example, run `export base_dir="data"`.)
 
 
 ### Running end-to-end prediction (shortcut)
@@ -53,7 +53,8 @@ chmod +x run.sh
 python3 ../DPR/data/download_data.py --resource data.retriever.qas.nq --output_dir ${base_dir} # QA data
 python3 ../DPR/data/download_data.py --resource data.wikipedia_split --output_dir ${base_dir} # Wikipedia DB
 # (For seen-only variants) filter passages that are seen on the train data
-python3 keep_seen_docs_only.py --db_path ${base_dir}/data/wikipedia_split/psgs_w100.tsv --data_path ${base_dir}/data/retriever/qas/nq-train.csv
+python3 ../DPR/data/download_data.py --resource data.retriever.nq-train --output_dir ${base_dir}
+python3 keep_seen_docs_only.py --db_path ${base_dir}/data/wikipedia_split/psgs_w100.tsv --data_path ${base_dir}/data/retriever/nq-train.json
 ```
 
 **Step 2**: Download indexes and pretrained models
@@ -63,29 +64,29 @@ python3 keep_seen_docs_only.py --db_path ${base_dir}/data/wikipedia_split/psgs_w
 python3 ../DPR/data/download_data.py --resource indexes.drqa.nq.full --output_dir ${base_dir} # DrQA index
 python3 ../DPR/data/download_data.py --resource checkpoint.reader.nq-drqa.hf-bert-base --output_dir ${base_dir} # reader checkpoint
 export drqa_index="${base_dir}/indexes/drqa/nq/full.npz"
-export reader_checkpoint="${base_dir}/checkpoint/reader/nq-drqa/hf_bert_base.cp"
+export reader_checkpoint="${base_dir}/checkpoint/reader/nq-drqa/hf-bert-base.cp"
 
 # For DrQA-seen-only
 python3 ../DPR/data/download_data.py --resource indexes.drqa.nq.seen_only --output_dir ${base_dir} # DrQA index
 python3 ../DPR/data/download_data.py --resource checkpoint.reader.nq-drqa-seen_only.hf-bert-base --output_dir ${base_dir} # reader checkpoint
 export drqa_index="${base_dir}/indexes/drqa/nq/seen_only.npz"
-export reader_checkpoint="${base_dir}/checkpoint/reader/nq-drqa-seen_only/hf_bert_base.cp"
+export reader_checkpoint="${base_dir}/checkpoint/reader/nq-drqa-seen_only/hf-bert-base.cp"
 
 # For DPR-full
 python3 ../DPR/data/download_data.py --resource checkpoint.retriever.single.nq.bert-base-encoder --output_dir ${base_dir} # retrieval checkpoint
 python3 ../DPR/data/download_data.py --resource indexes.single.nq.full --output_dir ${base_dir} # DPR index
 python3 ../DPR/data/download_data.py --resource checkpoint.reader.nq-single.hf-bert-base --output_dir ${base_dir} # reader checkpoint
-export dpr_retrieval_checkpoint="${base_dir}/checkpoint/retriever/single/nq/hf_bert_base.cp"
+export dpr_retrieval_checkpoint="${base_dir}/checkpoint/retriever/single/nq/bert-base-encoder.cp"
 export dpr_index="${base_dir}/indexes/single/nq/full"
-export reader_checkpoint="${base_dir}/checkpoint/reader/nq-single/hf_bert_base.cp"
+export reader_checkpoint="${base_dir}/checkpoint/reader/nq-single/hf-bert-base.cp"
 
 # For DPR-seen-only
 python3 ../DPR/data/download_data.py --resource checkpoint.retriever.single.nq.bert-base-encoder --output_dir ${base_dir} # retrieval checkpoint
 python3 ../DPR/data/download_data.py --resource indexes.single.nq.seen_only --output_dir ${base_dir} # DPR index
 python3 ../DPR/data/download_data.py --resource checkpoint.reader.nq-single-seen_only.hf-bert-base --output_dir ${base_dir} # reader checkpoint
-export dpr_retrieval_checkpoint="${base_dir}/checkpoint/retriever/single/nq/hf_bert_base.cp"
+export dpr_retrieval_checkpoint="${base_dir}/checkpoint/retriever/single/nq/bert-base-encoder.cp"
 export dpr_index="${base_dir}/indexes/single/nq/seen_only"
-export reader_checkpoint="${base_dir}/checkpoint/reader/nq-single-seen_only/hf_bert_base.cp"
+export reader_checkpoint="${base_dir}/checkpoint/reader/nq-single-seen_only/hf-bert-base.cp"
 ```
 
 **Step 3**: Run inference script to save predictions from the questions
@@ -96,12 +97,13 @@ python3 run_inference.py \
   --retrieval_type {drqa|dpr} \ # which retrieval to use
   --db_path ${base_dir}/data/wikipedia_split/{psgs_w100.tsv|psgs_w100_seen_only.tsv} \
   --tfidf_path ${drqa_index} \ # only matters for drqa retrieval
-  --drqa_model_file ${dpr_retrieval_checkpoint} \ # only matters for dpr retrieval
+  --dpr_model_file ${dpr_retrieval_checkpoint} \ # only matters for dpr retrieval
   --dense_index_path ${dpr_index} \ # only matters for dpr retrieval
   --model_file ${reader_checkpoint} \ # path to the reader checkpoint
   --dev_batch_size 8 \ # 8 is good for one 32gb GPU
   --pretrained_model_cfg bert-base-uncased --encoder_model_type hf_bert --do_lower_case \
-  --sequence_length 350 --eval_top_docs 10 20 40 50 80 100 --passages_per_question_predict 100 \
+  --sequence_length 350 --eval_top_docs 10 20 40 50 80 100 \
+  --passages_per_question_predict 100 \ # 100 for DrQA, 40 for DPR
   --prediction_results_file dev_predictions.json # path to save predictions; comparable to the official evaluation script
 ```
 
