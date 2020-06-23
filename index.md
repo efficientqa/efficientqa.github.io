@@ -59,9 +59,9 @@ valid answers. At the end of this competition's submission period, predictions f
 best performing systems will be checked by humans. The final ranking will be
 performed on the basis of this human eval.
 
-## Tutorial on Existing Baselines
-We have provided instructions for getting started on the NQ-open task with
-existing systems that either generate answers directly, from a neural network,
+## Baseline Systems
+We have provided a tutorial for getting started with
+several baseline systems that either generate answers directly, from a neural network,
 or extract them from a corpus of text. You can find the tutorial
 [here](https://efficientqa.github.io/getting_started.html).
 
