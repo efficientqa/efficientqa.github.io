@@ -2,8 +2,8 @@
 We have provided a number of baseline systems, to help you get started with this
 challenge.
 
-* [Retrivial-based (DrQA / DPR)](#retrieval-based)
-* [Generative (T5)](#generative)
+* [Retrivial-based (DrQA / DPR)](#retrieval-based) stores a database of Wikipedia, retrieves a set of relevant passages to the question, and employs a multi-passage reader to find the answer from the retrieved passages. (Provided code in [PyTorch](https://pytorch.org/))
+* [Generative (T5)](#generative) stores all knolwedge in its parameters based on large-scale, unsupervised pretraining, and generates the answer directly from the question. (Provided code in [Tensorflow](https://www.tensorflow.org/))
 
 
 ## Retrieval-based (DrQA / DPR) <a name="retrieval-based"></a>
@@ -11,10 +11,12 @@ challenge.
 
 We provide two retrieval-based baselines.
 
-- DrQA: Danqi Chen, Adam Fisch, Jason Weston, Antoine Bordes. [Reading Wikipedia to Answer Open-Domain Questions](https://arxiv.org/abs/1704.00051). ACL 2017. [[Original implementation](https://github.com/facebookresearch/DrQA)]
-- DPR: Vladimir Karpukhin, Barlas Oğuz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, Wen-tau Yih, [Dense Passage Retrieval for Open-Domain Question Answering](https://arxiv.org/abs/2004.04906), Preprint 2020. [[Original implementation](https://github.com/facebookresearch/DPR)]
+- DrQA: Danqi Chen, Adam Fisch, Jason Weston, Antoine Bordes. [Reading Wikipedia to Answer Open-Domain Questions](https://arxiv.org/abs/1704.00051). ACL 2017. [[Original implementation](https://github.com/facebookresearch/DrQA)]*
+- DPR: Vladimir Karpukhin, Barlas Oğuz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, Wen-tau Yih, [Dense Passage Retrieval for Open-Domain Question Answering](https://arxiv.org/abs/2004.04906), 2020. [[Original implementation](https://github.com/facebookresearch/DPR)]
 
-We provide two variants for each model, using (1) full Wikipedia and (2) Wikipedia pages seen from the train data.
+<p style="font-size: 8pt">* Note that our DrQA baseline is different from the original DrQA; we use DrQA retrieval, but use a BERT-base multi-passage reader instead of DrQA reader. The reader is identical for both DrQA and DPR.</p>
+
+We provide two variants for each model, using (1) full Wikipedia (`full`) and (2) Wikipedia pages seen from the train data, i.e., found to be relevant to the questions on the train data (`seen-only`). In particular, we add `seen-only` as a naive way to reduce the disk memory usage for the retrieval-based baselines.
 
 |Model|Exact Mach|Disk usage (gb)|
 |---|---|---|
@@ -23,7 +25,7 @@ We provide two variants for each model, using (1) full Wikipedia and (2) Wikiped
 |DPR-full|41.4|66.4|
 |DPR-seen-only|35.1|5.9|
 
-Details on training and testing the models are available [here](https://github.com/efficientqa/retrieval-based-baselines).
+Details on training and testing the models are available at [EfficientQA Retrieval-base Baselines Repo](https://github.com/efficientqa/retrieval-based-baselines).
 
 ### Getting ready
 
