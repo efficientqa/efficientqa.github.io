@@ -1,4 +1,4 @@
-# Getting Started
+# Tutorial on baselines
 We have provided a number of baseline systems, to help you get started with this
 challenge.
 
@@ -48,10 +48,10 @@ Let `${base_dir}` as your base directory to store data and pretrained models. (F
 ### Running end-to-end prediction (shortcut)
 ```bash
 chmod +x run.sh
-./run.sh drqa-full # for DrQA-full
-./run.sh drqa-seen-only # for DrQA-seen-only
+./run.sh tfidf-full # for TFIDF-full
+./run.sh tfidf-subset # for TFIDF-subset
 ./run.sh dpr-full # for DPR-full
-./run.sh dpr-seen-only # for DPR-seen-only
+./run.sh dpr-subset # for DPR-subset
 ```
 
 ### Running end-to-end prediction (detail)
@@ -63,23 +63,23 @@ python3 ../DPR/data/download_data.py --resource data.retriever.qas.nq --output_d
 python3 ../DPR/data/download_data.py --resource data.wikipedia_split --output_dir ${base_dir} # Wikipedia DB
 # (For seen-only variants) filter passages that are seen on the train data
 python3 ../DPR/data/download_data.py --resource data.retriever.nq-train --output_dir ${base_dir}
-python3 keep_seen_docs_only.py --db_path ${base_dir}/data/wikipedia_split/psgs_w100.tsv --data_path ${base_dir}/data/retriever/nq-train.json
+python3 filter_subset_wiki.py --db_path ${base_dir}/data/wikipedia_split/psgs_w100.tsv --data_path ${base_dir}/data/retriever/nq-train.json
 ```
 
 **Step 2**: Download indexes and pretrained models
 
 ```bash
-# For DrQA-full
-python3 ../DPR/data/download_data.py --resource indexes.drqa.nq.full --output_dir ${base_dir} # DrQA index
-python3 ../DPR/data/download_data.py --resource checkpoint.reader.nq-drqa.hf-bert-base --output_dir ${base_dir} # reader checkpoint
-export drqa_index="${base_dir}/indexes/drqa/nq/full.npz"
-export reader_checkpoint="${base_dir}/checkpoint/reader/nq-drqa/hf-bert-base.cp"
+# For TFIDF-full
+python3 ../DPR/data/download_data.py --resource indexes.tfidf.nq.full --output_dir ${base_dir} # TFIDF index
+python3 ../DPR/data/download_data.py --resource checkpoint.reader.nq-tfidf.hf-bert-base --output_dir ${base_dir} # reader checkpoint
+export tfidf_index="${base_dir}/indexes/tfidf/nq/full.npz"
+export reader_checkpoint="${base_dir}/checkpoint/reader/nq-tfidf/hf-bert-base.cp"
 
-# For DrQA-seen-only
-python3 ../DPR/data/download_data.py --resource indexes.drqa.nq.seen_only --output_dir ${base_dir} # DrQA index
-python3 ../DPR/data/download_data.py --resource checkpoint.reader.nq-drqa-seen_only.hf-bert-base --output_dir ${base_dir} # reader checkpoint
-export drqa_index="${base_dir}/indexes/drqa/nq/seen_only.npz"
-export reader_checkpoint="${base_dir}/checkpoint/reader/nq-drqa-seen_only/hf-bert-base.cp"
+# For TFIDF-subset
+python3 ../DPR/data/download_data.py --resource indexes.tfidf.nq.subset --output_dir ${base_dir} # TFIDF index
+python3 ../DPR/data/download_data.py --resource checkpoint.reader.nq-tfidf-subset.hf-bert-base --output_dir ${base_dir} # reader checkpoint
+export tfidf_index="${base_dir}/indexes/tfidf/nq/subset.npz"
+export reader_checkpoint="${base_dir}/checkpoint/reader/nq-tfidf-subset/hf-bert-base.cp"
 
 # For DPR-full
 python3 ../DPR/data/download_data.py --resource checkpoint.retriever.single.nq.bert-base-encoder --output_dir ${base_dir} # retrieval checkpoint
@@ -89,13 +89,13 @@ export dpr_retrieval_checkpoint="${base_dir}/checkpoint/retriever/single/nq/bert
 export dpr_index="${base_dir}/indexes/single/nq/full"
 export reader_checkpoint="${base_dir}/checkpoint/reader/nq-single/hf-bert-base.cp"
 
-# For DPR-seen-only
+# For DPR-subset
 python3 ../DPR/data/download_data.py --resource checkpoint.retriever.single.nq.bert-base-encoder --output_dir ${base_dir} # retrieval checkpoint
-python3 ../DPR/data/download_data.py --resource indexes.single.nq.seen_only --output_dir ${base_dir} # DPR index
-python3 ../DPR/data/download_data.py --resource checkpoint.reader.nq-single-seen_only.hf-bert-base --output_dir ${base_dir} # reader checkpoint
+python3 ../DPR/data/download_data.py --resource indexes.single.nq.subset --output_dir ${base_dir} # DPR index
+python3 ../DPR/data/download_data.py --resource checkpoint.reader.nq-single-subset.hf-bert-base --output_dir ${base_dir} # reader checkpoint
 export dpr_retrieval_checkpoint="${base_dir}/checkpoint/retriever/single/nq/bert-base-encoder.cp"
-export dpr_index="${base_dir}/indexes/single/nq/seen_only"
-export reader_checkpoint="${base_dir}/checkpoint/reader/nq-single-seen_only/hf-bert-base.cp"
+export dpr_index="${base_dir}/indexes/single/nq/subset"
+export reader_checkpoint="${base_dir}/checkpoint/reader/nq-single-subset/hf-bert-base.cp"
 ```
 
 **Step 3**: Run inference script to save predictions from the questions
@@ -103,17 +103,17 @@ export reader_checkpoint="${base_dir}/checkpoint/reader/nq-single-seen_only/hf-b
 ```bash
 python3 run_inference.py \
   --qa_file ${base_dir}/data/retriever/qas/nq-{dev|test}.csv \ # data file with questions
-  --retrieval_type {drqa|dpr} \ # which retrieval to use
-  --db_path ${base_dir}/data/wikipedia_split/{psgs_w100.tsv|psgs_w100_seen_only.tsv} \
-  --tfidf_path ${drqa_index} \ # only matters for drqa retrieval
+  --retrieval_type {tfidf|dpr} \ # which retrieval to use
+  --db_path ${base_dir}/data/wikipedia_split/{psgs_w100.tsv|psgs_w100_subset.tsv} \
+  --tfidf_path ${tfidf_index} \ # only matters for TFIDF retrieval
   --dpr_model_file ${dpr_retrieval_checkpoint} \ # only matters for dpr retrieval
   --dense_index_path ${dpr_index} \ # only matters for dpr retrieval
   --model_file ${reader_checkpoint} \ # path to the reader checkpoint
   --dev_batch_size 8 \ # 8 is good for one 32gb GPU
   --pretrained_model_cfg bert-base-uncased --encoder_model_type hf_bert --do_lower_case \
   --sequence_length 350 --eval_top_docs 10 20 40 50 80 100 \
-  --passages_per_question_predict 100 \ # 100 for DrQA, 40 for DPR
-  --prediction_results_file dev_predictions.json # path to save predictions; comparable to the official evaluation script
+  --passages_per_question_predict 100 \ # 100 for TFIDF, 40 for DPR
+  --prediction_results_file {dev|test}_predictions.json # path to save predictions; comparable to the official evaluation script
 ```
 
 ## Generative (T5) <a name="generative"></a>

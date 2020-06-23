@@ -14,9 +14,8 @@ constraints. The best performing systems from each of the tracks will be put to
 test in a live competition against trivia experts during the [NeurIPS 2020
 competition track](https://neurips.cc/Conferences/2020/CompetitionTrack).
 
-We have provided instructions for
-[getting started](https://efficientqa.github.io/getting_started.html) with 
-a number of different sized baseline models. 
+We have provided [tutorial on baselines](https://efficientqa.github.io/getting_started.html) with
+a number of different sized baseline models.
 To be notified when the leaderboard is launched, in July 2020, and for up to
 date information on the competition and workshop, please [sign up to our mailing
 list](https://efficientqa.github.io/sign_up_for_notifications.html).
@@ -49,8 +48,7 @@ the goal is to build:
 We will award prizes to the teams that create the top performing submissions
 in each restricted track.
 
-For more information on the task definition, data, and evaluation please
-[go here](https://efficientqa.github.io/task_definition.html)
+More information on the task definition, data, and evaluation can be found [here](https://efficientqa.github.io/task_definition.html).
 
 
 ### Human Evaluation
@@ -61,11 +59,11 @@ valid answers. At the end of this competition's submission period, predictions f
 best performing systems will be checked by humans. The final ranking will be
 performed on the basis of this human eval.
 
-## Getting Started with Existing Baselines
+## Tutorial on Existing Baselines
 We have provided instructions for getting started on the NQ-open task with
 existing systems that either generate answers directly, from a neural network,
-or extract them from a corpus of text. You can find the baselines' instructions 
-[here](https://efficientqa.github.io/getting_started.html). 
+or extract them from a corpus of text. You can find the tutorial
+[here](https://efficientqa.github.io/getting_started.html).
 
 ## Important Dates
 
@@ -74,7 +72,7 @@ or extract them from a corpus of text. You can find the baselines' instructions
 | **July, 2020**                  | Leaderboard launched.                                             |
 | **October 14, 2020**            | Leaderboard frozen.                                               |
 | **November 14, 2020**           | Human evaluation completed and winners announced.                 |
-| **December 11-12, 2020** &emsp; | NeurIPS workshop and human-computer competition (held virtually). | 
+| **December 11-12, 2020** &emsp; | NeurIPS workshop and human-computer competition (held virtually). |
 
 ## Organizers
 
