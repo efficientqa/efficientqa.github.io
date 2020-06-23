@@ -3,7 +3,7 @@ We have provided a number of baseline systems, to help you get started with this
 challenge.
 
 * [Retrieval-based (TF-IDF / DPR)](#retrieval-based) stores a database of Wikipedia, retrieves a set of relevant passages to the question, and employs a multi-passage reader to find the answer from the retrieved passages (implementation in PyTorch). TF-IDF is a standard sparse term-based retriever (adapted from the [DrQA system](https://github.com/facebookresearch/DrQA)) and DPR is based on a fully dense-vector passage retriever learned from question/answer pairs.
-* [Generative (T5)](#generative) stores all knolwedge in its parameters based on large-scale, unsupervised pretraining, and generates the answer directly from the question (implementation in Tensorflow).
+* [Generative (T5)](#generative) stores all knolwedge in its parameters based on large-scale, unsupervised pretraining, and generates the answer directly from the question (implementations in Tensorflow and Huggingface PyTorch).
 
 
 ## Retrieval-based (TF-IDF / DPR) <a name="retrieval-based"></a>
@@ -120,8 +120,28 @@ python3 run_inference.py \
 
 This section provides pointers on how to reproduce the experiments on the purely generative approach to "closed-book question answering" with [T5](https://ai.googleblog.com/2020/02/exploring-transfer-learning-with-t5.html) detailed in [How Much Knowledge Can You Pack Into the Parameters of a Language Model?](https://arxiv.org/abs/2002.08910) (Roberts, et al. 2020).
 
-This approach fine-tunes a large language model ([T5](https://github.com/google-research/text-to-text-transfer-transformer)) to solve QA tasks using only the knowledge stored in its parameters based on unsupervised pre-training over a large corpus based on Common Crawl ([C4](http://tensorflow.org/datasets/catalog/c4)).
+This approach fine-tunes a large language model ([T5](https://github.com/google-research/text-to-text-transfer-transformer)) to solve QA tasks using only the knowledge stored in its parameters based on unsupervised pre-training over a large corpus based on Common Crawl ([C4](http://tensorflow.org/datasets/catalog/c4)). Below are the results and disk usage (Docker image size) for various model sizes and configurations.
 
-Instructions for fine-tuning the T5 model on Natural Questions can be found in the [T5 github repo](https://github.com/google-research/google-research/tree/master/t5_closed_book_qa), along with already fine-tuned checkpoints. The repository itself provides an example for how to create new pre-training and fine-tuning tasks with the T5 library. An example for how to interactively call the T5 repo be found in the [T5 Colab](https://tiny.cc/t5-colab), which also trains on Natural Questions but lacks some of the improvements implemented in the CBQA repo.
+|Model|Exact Mach|Disk usage (gb)|
+|---|---|---|
+|T5-1.1-small | - |0.39|
+|T5-1.1-XL |32.2|5.60|
+|T5.1.1-XXL|34.2|22.0|
+|T5.1.1-XXL + SSM|37.9|22.0|
 
-You can access both via Colab to use a free `v2-8` TPU, which is powerful enough to finetune a T5-3B model. For T5-11B you will need to purchase time on a `v3-8` TPU or larger.
+### Fine-tuning T5
+
+Instructions for fine-tuning the T5 model on Natural Questions via command-line can be found in the [T5 Closed Book QA github repo](https://github.com/google-research/google-research/tree/master/t5_closed_book_qa), along with already fine-tuned checkpoints. The repository itself demonstrates how to create new pre-training and fine-tuning tasks with the base [T5 library](https://github.com/google-research/text-to-text-transfer-transformer). An example for how to interactively call the T5 repo be found in the [T5 Colab](https://tiny.cc/t5-colab), which also trains on Natural Questions but lacks some of the improvements implemented in the Closed Book QA repo.
+
+### Accelerators
+
+While a CPU is sufficient for inference, some variants of T5 require significant compute resources to pre-train or fine-tune. Colab provides a free `v2-8` TPU, which is powerful enough to finetune the XL/3B model or below. For XXL/11B, you will need a `v3-8` TPU or larger. 
+
+It is also possible to fine-tune using one or more GPUs following instructions for the [TensorFlow implementation](https://github.com/google-research/text-to-text-transfer-transformer#gpu-usage) or HuggingFace's [PyTorch implementation](https://github.com/google-research/text-to-text-transfer-transformer/blob/a08f0d1c4a7caa6495aec90ce769a29787c3c87c/t5/models/hf_model.py#L38). Note that the PyTorch implementation does not support model parallelism, and is therefore incompatible with the XXL/11B model.
+
+### Inference
+
+Running inference on T5 models is demonstrated in the [T5 Colab](https://tiny.cc/t5-colab) and (command line instructions)[https://github.com/google-research/text-to-text-transfer-transformer#decode]. 
+
+COMING SOON: An example of how to package a model checkpoint into a [Docker image](https://www.tensorflow.org/tfx/serving/docker) for submission and serving.
+
