@@ -14,12 +14,12 @@ constraints. The best performing systems from each of the tracks will be put to
 test in a live competition against trivia experts during the [NeurIPS 2020
 competition track](https://neurips.cc/Conferences/2020/CompetitionTrack).
 
+We have provided instructions for
+[getting started](https://efficientqa.github.io/getting_started.html) with 
+a number of different sized baseline models. 
 To be notified when the leaderboard is launched, in July 2020, and for up to
 date information on the competition and workshop, please [sign up to our mailing
-list](https://efficientqa.github.io/sign_up_for_notifications.html). We have
-also instructions for 
-[getting started](https://efficientqa.github.io/getting_started.html) with 
-a number of different sized baseline models.
+list](https://efficientqa.github.io/sign_up_for_notifications.html).
 
 ## Competition Overview
 
