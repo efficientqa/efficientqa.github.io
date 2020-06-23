@@ -129,7 +129,7 @@ This approach fine-tunes a large language model ([T5](https://github.com/google-
 |T5.1.1-XXL|34.2|22.0|
 |T5.1.1-XXL + SSM|37.9|22.0|
 
-### Fine-tuning T5
+### Fine-tuning
 
 Instructions for fine-tuning the T5 model on Natural Questions via command-line can be found in the [T5 Closed Book QA github repo](https://github.com/google-research/google-research/tree/master/t5_closed_book_qa), along with already fine-tuned checkpoints. The repository itself demonstrates how to create new pre-training and fine-tuning tasks with the base [T5 library](https://github.com/google-research/text-to-text-transfer-transformer). An example for how to interactively call the T5 repo be found in the [T5 Colab](https://tiny.cc/t5-colab), which also trains on Natural Questions but lacks some of the improvements implemented in the Closed Book QA repo.
 
@@ -141,7 +141,7 @@ It is also possible to fine-tune using one or more GPUs following instructions f
 
 ### Inference
 
-Running inference on T5 models is demonstrated in the [T5 Colab](https://tiny.cc/t5-colab) and (command line instructions)[https://github.com/google-research/text-to-text-transfer-transformer#decode]. 
+Running inference on T5 models is demonstrated in the [T5 Colab](https://tiny.cc/t5-colab) and [command line instructions](https://github.com/google-research/text-to-text-transfer-transformer#decode). 
 
 COMING SOON: An example of how to package a model checkpoint into a [Docker image](https://www.tensorflow.org/tfx/serving/docker) for submission and serving.
 
