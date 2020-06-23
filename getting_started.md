@@ -61,7 +61,7 @@ chmod +x run.sh
 ```bash
 python3 ../DPR/data/download_data.py --resource data.retriever.qas.nq --output_dir ${base_dir} # QA data
 python3 ../DPR/data/download_data.py --resource data.wikipedia_split --output_dir ${base_dir} # Wikipedia DB
-# (For seen-only variants) filter passages that are seen on the train data
+# (For "subset" variants) create a new DB with a subset of Wikipedia passages
 python3 ../DPR/data/download_data.py --resource data.retriever.nq-train --output_dir ${base_dir}
 python3 filter_subset_wiki.py --db_path ${base_dir}/data/wikipedia_split/psgs_w100.tsv --data_path ${base_dir}/data/retriever/nq-train.json
 ```
