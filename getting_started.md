@@ -21,16 +21,16 @@ Note that for both baselines, we use text blocks of 100 words as passages and a 
 
 <!-- <p style="font-size: 8pt">* Note that our DrQA baseline is different from the original s; we use the document retriever from DrQA, but use a more effective BERT-base multi-passage reader instead of LSTM-based DrQA reader. The reader is identical for both DrQA and DPR.</p> -->
 
-We provide two variants for each model, using (1) full Wikipedia (`full`) and (2) A subset of Wikipedia articles which are found relevant to the questions on the train data (`train-passages`). In particular, we think of `train-passages` as a naive way to reduce the disk memory usage for the retrieval-based baselines.
+We provide two variants for each model, using (1) full Wikipedia (`full`) and (2) A subset of Wikipedia articles which are found relevant to the questions on the train data (`subset`). In particular, we think of `subset` as a naive way to reduce the disk memory usage for the retrieval-based baselines.
 
 <!-- Wikipedia pages seen from the train data, i.e., found to be relevant to the questions on the train data (`train-passages`).  -->
 
 |Model|Exact Mach|Disk usage (gb)|
 |---|---|---|
 |TFIDF-full|32.0|20.1|
-|TFIDF-train-passages|31.1|2.8|
+|TFIDF-subset|31.1|2.8|
 |DPR-full|41.4|66.4|
-|DPR-train-passages|35.1|5.9|
+|DPR-subset|35.1|5.9|
 
 Details on training and testing the models are available at [EfficientQA Retrieval-base Baselines Repo](https://github.com/efficientqa/retrieval-based-baselines).
 
