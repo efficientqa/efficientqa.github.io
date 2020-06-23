@@ -2,28 +2,35 @@
 We have provided a number of baseline systems, to help you get started with this
 challenge.
 
-* [Retrivial-based (DrQA / DPR)](#retrieval-based) stores a database of Wikipedia, retrieves a set of relevant passages to the question, and employs a multi-passage reader to find the answer from the retrieved passages. (Provided code in [PyTorch](https://pytorch.org/))
-* [Generative (T5)](#generative) stores all knolwedge in its parameters based on large-scale, unsupervised pretraining, and generates the answer directly from the question. (Provided code in [Tensorflow](https://www.tensorflow.org/))
+* [Retrieval-based (TF-IDF / DPR)](#retrieval-based) stores a database of Wikipedia, retrieves a set of relevant passages to the question, and employs a multi-passage reader to find the answer from the retrieved passages (implementation in PyTorch). TF-IDF is a standard sparse term-based retriever (adapted from the [DrQA system](https://github.com/facebookresearch/DrQA)) and DPR is based on a fully dense-vector passage retriever learned from question/answer pairs.
+* [Generative (T5)](#generative) stores all knolwedge in its parameters based on large-scale, unsupervised pretraining, and generates the answer directly from the question (implementation in Tensorflow).
 
 
-## Retrieval-based (DrQA / DPR) <a name="retrieval-based"></a>
+## Retrieval-based (TF-IDF / DPR) <a name="retrieval-based"></a>
 
 
-We provide two retrieval-based baselines.
+We provide two retrieval-based baselines:
 
-- DrQA: Danqi Chen, Adam Fisch, Jason Weston, Antoine Bordes. [Reading Wikipedia to Answer Open-Domain Questions](https://arxiv.org/abs/1704.00051). ACL 2017. [[Original implementation](https://github.com/facebookresearch/DrQA)]*
-- DPR: Vladimir Karpukhin, Barlas Oğuz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, Wen-tau Yih, [Dense Passage Retrieval for Open-Domain Question Answering](https://arxiv.org/abs/2004.04906), 2020. [[Original implementation](https://github.com/facebookresearch/DPR)]
+- TF-IDF: TF-IDF retrieval built on fixed-length passages, adapted from the [DrQA system's implementation](https://github.com/facebookresearch/DrQA).
+<!-- <br>Danqi Chen, Adam Fisch, Jason Weston, Antoine Bordes. [Reading Wikipedia to Answer Open-Domain Questions](https://arxiv.org/abs/1704.00051). ACL 2017.  -->
+- DPR: A learned dense passage retriever, detailed in [Dense Passage Retrieval for Open-Domain Question Answering](https://arxiv.org/abs/2004.04906) (Karpukhin et al, 2020). Our baseline is adapted from the [original implementation](https://github.com/facebookresearch/DPR).
 
-<p style="font-size: 8pt">* Note that our DrQA baseline is different from the original DrQA; we use DrQA retrieval, but use a BERT-base multi-passage reader instead of DrQA reader. The reader is identical for both DrQA and DPR.</p>
+<!-- Vladimir Karpukhin, Barlas Oğuz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, Wen-tau Yih, [Dense Passage Retrieval for Open-Domain Question Answering](https://arxiv.org/abs/2004.04906), 2020. [[repo](https://github.com/facebookresearch/DPR)] -->
 
-We provide two variants for each model, using (1) full Wikipedia (`full`) and (2) Wikipedia pages seen from the train data, i.e., found to be relevant to the questions on the train data (`seen-only`). In particular, we add `seen-only` as a naive way to reduce the disk memory usage for the retrieval-based baselines.
+Note that for both baselines, we use text blocks of 100 words as passages and a BERT-base multi-passage reader. See more details in the [DPR paper](https://arxiv.org/pdf/2004.04906.pdf).
+
+<!-- <p style="font-size: 8pt">* Note that our DrQA baseline is different from the original s; we use the document retriever from DrQA, but use a more effective BERT-base multi-passage reader instead of LSTM-based DrQA reader. The reader is identical for both DrQA and DPR.</p> -->
+
+We provide two variants for each model, using (1) full Wikipedia (`full`) and (2) A subset of Wikipedia articles which are found relevant to the questions on the train data (`train-passages`). In particular, we think of `train-passages` as a naive way to reduce the disk memory usage for the retrieval-based baselines.
+
+<!-- Wikipedia pages seen from the train data, i.e., found to be relevant to the questions on the train data (`train-passages`).  -->
 
 |Model|Exact Mach|Disk usage (gb)|
 |---|---|---|
-|DrQA-full|32.0|20.1|
-|DrQA-seen-only|31.1|2.8|
+|TFIDF-full|32.0|20.1|
+|TFIDF-train-passages|31.1|2.8|
 |DPR-full|41.4|66.4|
-|DPR-seen-only|35.1|5.9|
+|DPR-train-passages|35.1|5.9|
 
 Details on training and testing the models are available at [EfficientQA Retrieval-base Baselines Repo](https://github.com/efficientqa/retrieval-based-baselines).
 
@@ -115,6 +122,6 @@ This section provides pointers on how to reproduce the experiments on the purely
 
 This approach fine-tunes a large language model ([T5](https://github.com/google-research/text-to-text-transfer-transformer)) to solve QA tasks using only the knowledge stored in its parameters based on unsupervised pre-training over a large corpus based on Common Crawl ([C4](http://tensorflow.org/datasets/catalog/c4)).
 
-Instructions for fine-tuning the T5 model on Natural Questions can be found in the [T5 github repo](https://github.com/google-research/google-research/tree/master/t5_closed_book_qa), along with already fine-tuned checkpoints. The repository itself provides an example for how to create new pre-training and fine-tuning tasks with the T5 library. An example for how to interactively call the T5 repo be found in the [T5 Colab](https://tiny.cc/t5-colab), which also trains on Natural Questions but lacks some of the improvements implemented in the CBQA repo. 
+Instructions for fine-tuning the T5 model on Natural Questions can be found in the [T5 github repo](https://github.com/google-research/google-research/tree/master/t5_closed_book_qa), along with already fine-tuned checkpoints. The repository itself provides an example for how to create new pre-training and fine-tuning tasks with the T5 library. An example for how to interactively call the T5 repo be found in the [T5 Colab](https://tiny.cc/t5-colab), which also trains on Natural Questions but lacks some of the improvements implemented in the CBQA repo.
 
 You can access both via Colab to use a free `v2-8` TPU, which is powerful enough to finetune a T5-3B model. For T5-11B you will need to purchase time on a `v3-8` TPU or larger.
