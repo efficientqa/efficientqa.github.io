@@ -16,8 +16,10 @@ competition track](https://neurips.cc/Conferences/2020/CompetitionTrack).
 
 To be notified when the leaderboard is launched, in July 2020, and for up to
 date information on the competition and workshop, please [sign up to our mailing
-list](https://efficientqa.github.io/sign_up_for_notifications.html).
-
+list](https://efficientqa.github.io/sign_up_for_notifications.html). We have
+also instructions for 
+[getting started](https://efficientqa.github.io/getting_started.html) with 
+a number of different sized baseline models.
 
 ## Competition Overview
 
