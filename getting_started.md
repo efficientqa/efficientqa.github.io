@@ -28,9 +28,9 @@ We provide two variants for each model, using (1) full Wikipedia (`full`) and (2
 |Model|Exact Mach|Disk usage (gb)|
 |---|---|---|
 |TFIDF-full|32.0|20.1|
-|TFIDF-subset|31.1|2.8|
-|DPR-full|41.4|66.4|
-|DPR-subset|35.1|5.9|
+|TFIDF-subset|31.0|2.8|
+|DPR-full|41.0|66.4|
+|DPR-subset|34.8|5.9|
 
 Details on training and testing the models are available at [EfficientQA Retrieval-base Baselines Repo](https://github.com/efficientqa/retrieval-based-baselines).
 
@@ -59,7 +59,7 @@ chmod +x run.sh
 **Step 1**: Download data
 
 ```bash
-python3 ../DPR/data/download_data.py --resource data.retriever.qas.nq --output_dir ${base_dir} # QA data
+wget https://raw.githubusercontent.com/efficientqa/nq-open/master/NQ-open.dev.jsonl
 python3 ../DPR/data/download_data.py --resource data.wikipedia_split --output_dir ${base_dir} # Wikipedia DB
 # (For "subset" variants) create a new DB with a subset of Wikipedia passages
 python3 ../DPR/data/download_data.py --resource data.retriever.nq-train --output_dir ${base_dir}
@@ -102,7 +102,7 @@ export reader_checkpoint="${base_dir}/checkpoint/reader/nq-single-subset/hf-bert
 
 ```bash
 python3 run_inference.py \
-  --qa_file ${base_dir}/data/retriever/qas/nq-{dev|test}.csv \ # data file with questions
+  --qa_file NQ-open.dev.jsonl \ # data file with questions
   --retrieval_type {tfidf|dpr} \ # which retrieval to use
   --db_path ${base_dir}/data/wikipedia_split/{psgs_w100.tsv|psgs_w100_subset.tsv} \
   --tfidf_path ${tfidf_index} \ # only matters for TFIDF retrieval
@@ -113,7 +113,7 @@ python3 run_inference.py \
   --pretrained_model_cfg bert-base-uncased --encoder_model_type hf_bert --do_lower_case \
   --sequence_length 350 --eval_top_docs 10 20 40 50 80 100 \
   --passages_per_question_predict 100 \ # 100 for TFIDF, 40 for DPR
-  --prediction_results_file {dev|test}_predictions.json # path to save predictions; comparable to the official evaluation script
+  --prediction_results_file dev_predictions.json # path to save predictions; comparable to the official evaluation script
 ```
 
 ## Generative (T5) <a name="generative"></a>
@@ -135,13 +135,13 @@ Instructions for fine-tuning the T5 model on Natural Questions via command-line 
 
 ### Accelerators
 
-While a CPU is sufficient for inference, some variants of T5 require significant compute resources to pre-train or fine-tune. Colab provides a free `v2-8` TPU, which is powerful enough to finetune the XL/3B model or below. For XXL/11B, you will need a `v3-8` TPU or larger. 
+While a CPU is sufficient for inference, some variants of T5 require significant compute resources to pre-train or fine-tune. Colab provides a free `v2-8` TPU, which is powerful enough to finetune the XL/3B model or below. For XXL/11B, you will need a `v3-8` TPU or larger.
 
 It is also possible to fine-tune using one or more GPUs following instructions for the [TensorFlow implementation](https://github.com/google-research/text-to-text-transfer-transformer#gpu-usage) or HuggingFace's [PyTorch implementation](https://github.com/google-research/text-to-text-transfer-transformer/blob/a08f0d1c4a7caa6495aec90ce769a29787c3c87c/t5/models/hf_model.py#L38). Note that the PyTorch implementation does not support model parallelism, and is therefore incompatible with the XXL/11B model.
 
 ### Inference
 
-Running inference on T5 models is demonstrated in the [T5 Colab](https://tiny.cc/t5-colab) and [command line instructions](https://github.com/google-research/text-to-text-transfer-transformer#decode). 
+Running inference on T5 models is demonstrated in the [T5 Colab](https://tiny.cc/t5-colab) and [command line instructions](https://github.com/google-research/text-to-text-transfer-transformer#decode).
 
 COMING SOON: An example of how to package a model checkpoint into a [Docker image](https://www.tensorflow.org/tfx/serving/docker) for submission and serving.
 
