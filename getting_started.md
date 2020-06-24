@@ -1,4 +1,4 @@
-# Tutorial on baselines
+# Getting Started with Baselines
 We have provided a number of baseline systems, to help you get started with this
 challenge.
 
