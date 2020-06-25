@@ -140,7 +140,61 @@ It is also possible to fine-tune using one or more GPUs following instructions f
 
 ### Inference
 
-Running inference on T5 models is demonstrated in the [T5 Colab](https://tiny.cc/t5-colab) and [command line instructions](https://github.com/google-research/text-to-text-transfer-transformer#decode).
+Running inference over files is demonstrated in the [T5 Colab](https://tiny.cc/t5-colab) and [command line instructions](https://github.com/google-research/text-to-text-transfer-transformer#decode).
 
-COMING SOON: An example of how to package a model checkpoint into a [Docker image](https://www.tensorflow.org/tfx/serving/docker) for submission and serving.
+Here we demonstrate how to export a fine-tuned checkpoint as a `SavedModel`, which reduces its size and enables more efficient inference in an interactive setting.
+
+First, in your shell execute the following commands to export the model
+
+```sh
+# Install t5
+pip install -qU t5
+
+EXPORT_DIR=/tmp/t5_exports
+
+# Select one of the models below by un-commenting it.
+MODEL=t5.1.1.small_ssm_nq
+#MODEL=t5.1.1.xl_ssm_nq
+#MODEL=t5.1.1.xxl_ssm_nq
+
+# Export the model.
+t5_mesh_transformer \
+  --model_dir="gs://t5-data/pretrained_models/cbqa/${MODEL}" \
+  --use_model_api \
+  --mode="export" \
+  --export_dir=$EXPRT_DIR
+```
+
+Now that the `SavedModel` has been exported, we can load it in a Python interpreter for interactive inference.
+
+```py
+import os
+import tensorflow as tf
+import tensorflow_text  # Required to run exported model.
+
+EXPORT_DIR = '/tmp/t5_exports'
+
+saved_model_path = os.path.join(EXPORT_DIR, max(os.listdir(EXPORT_DIR)))
+
+model = tf.saved_model.load(saved_model_path, ["serve"])
+
+def predict_fn(x):
+ return model.signatures['serving_default'](tf.constant(x))['outputs'].numpy()
+
+def answer(question):
+  return predict_fn([question])[0].decode('utf-8')
+```
+
+Now, let's ask it some questions! Note we prefix each question with `nq question:` prompt since T5 is a multitask model
+
+```py
+for question in ["nq question: where is google's headquarters",
+                 "nq question: what is the most populous country in the world",
+                 "nq question: name a member of the beatles",
+                 "nq question: how many teeth do humans have"]:
+    print(answer(question))
+```
+
+
+**COMING SOON:** An example of how to package a model checkpoint into a [Docker image](https://www.tensorflow.org/tfx/serving/docker) for submission and serving.
 
