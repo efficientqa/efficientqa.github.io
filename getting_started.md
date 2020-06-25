@@ -124,10 +124,9 @@ This approach fine-tunes a large language model ([T5](https://github.com/google-
 
 |Model|Exact Mach|Disk usage (gb)|
 |---|---|---|
-|T5-1.1-small | 25.8 |0.39|
-|T5-1.1-XL |32.2|5.60|
-|T5.1.1-XXL|34.2|22.0|
-|T5.1.1-XXL + SSM|37.9|22.0|
+|T5-1.1-small + SSM | 25.8 |0.39|
+|T5-1.1-XL + SSM |35.6|5.60|
+|T5-1.1-XXL + SSM|37.9|22.0|
 
 ### Fine-tuning
 
