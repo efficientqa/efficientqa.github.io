@@ -144,7 +144,7 @@ Running inference over files is demonstrated in the [T5 Colab](https://tiny.cc/t
 
 Here we demonstrate how to export a fine-tuned checkpoint as a `SavedModel`, which reduces its size and enables more efficient inference in an interactive setting.
 
-First, in your shell execute the following commands to export the model
+First, in your shell execute the following commands to export the model:
 
 ```sh
 # Install t5
@@ -162,10 +162,10 @@ t5_mesh_transformer \
   --model_dir="gs://t5-data/pretrained_models/cbqa/${MODEL}" \
   --use_model_api \
   --mode="export" \
-  --export_dir=$EXPRT_DIR
+  --export_dir=$EXPORT_DIR
 ```
 
-Now that the `SavedModel` has been exported, we can load it in a Python interpreter for interactive inference.
+Now that the `SavedModel` has been exported, we can load it in a Python interpreter for interactive inference:
 
 ```py
 import os
@@ -185,7 +185,7 @@ def answer(question):
   return predict_fn([question])[0].decode('utf-8')
 ```
 
-Now, let's ask it some questions! Note we prefix each question with `nq question:` prompt since T5 is a multitask model
+Now, let's ask it some questions! Note we prefix each question with `nq question:` prompt since T5 is a multitask model.
 
 ```py
 for question in ["nq question: where is google's headquarters",
@@ -194,7 +194,6 @@ for question in ["nq question: where is google's headquarters",
                  "nq question: how many teeth do humans have"]:
     print(answer(question))
 ```
-
 
 **COMING SOON:** An example of how to package a model checkpoint into a [Docker image](https://www.tensorflow.org/tfx/serving/docker) for submission and serving.
 
