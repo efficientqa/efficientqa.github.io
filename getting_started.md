@@ -142,7 +142,7 @@ It is also possible to fine-tune using one or more GPUs following instructions f
 
 Running inference over files is demonstrated in the [T5 Colab](https://tiny.cc/t5-colab) and [command line instructions](https://github.com/google-research/text-to-text-transfer-transformer#decode).
 
-Here we demonstrate how to export a fine-tuned checkpoint as a `SavedModel`, which reduces its size and enables more efficient inference in an interactive setting.
+Here we demonstrate how to export a fine-tuned checkpoint as a `SavedModel`, which reduces its size and enables more efficient inference in an interactive setting.  You can also run through this commands in the provided [Colab notebook](https://colab.research.google.com/github/google-research/text-to-text-transfer-transformer/blob/master/notebooks/t5-deploy.ipynb).
 
 First, in your shell execute the following commands to export the model:
 
