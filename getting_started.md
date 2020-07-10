@@ -3,7 +3,7 @@ We have provided a number of baseline systems, to help you get started with this
 challenge.
 
 * [Retrieval-based (TF-IDF / DPR)](#retrieval-based) stores a database of Wikipedia, retrieves a set of relevant passages to the question, and employs a multi-passage reader to find the answer from the retrieved passages (implementation in PyTorch). TF-IDF is a standard sparse term-based retriever (adapted from the [DrQA system](https://github.com/facebookresearch/DrQA)) and DPR is based on a fully dense-vector passage retriever learned from question/answer pairs.
-* [Generative (T5)](#generative) stores all knolwedge in its parameters based on large-scale, unsupervised pretraining, and generates the answer directly from the question (implementations in Tensorflow and Huggingface PyTorch).
+* [Parametric (T5)](#parametric) stores all knolwedge in its parameters based on large-scale, unsupervised pretraining, and generates the answer directly from the question (implementations in Tensorflow and Huggingface PyTorch).
 
 
 ## Retrieval-based (TF-IDF / DPR) <a name="retrieval-based"></a>
@@ -116,7 +116,7 @@ python3 run_inference.py \
   --prediction_results_file dev_predictions.json # path to save predictions; comparable to the official evaluation script
 ```
 
-## Generative (T5) <a name="generative"></a>
+## Parameteric (T5) <a name="parametric"></a>
 
 This section provides pointers on how to reproduce the experiments on the purely generative approach to "closed-book question answering" with [T5](https://ai.googleblog.com/2020/02/exploring-transfer-learning-with-t5.html) detailed in [How Much Knowledge Can You Pack Into the Parameters of a Language Model?](https://arxiv.org/abs/2002.08910) (Roberts, et al. 2020).
 
