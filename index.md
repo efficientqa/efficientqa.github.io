@@ -45,9 +45,6 @@ the goal is to build:
 * the smallest self-contained question answering system that achieves 25%
   accuracy.
 
-We will award prizes to the teams that create the top performing submissions
-in each restricted track.
-
 More information on the task definition, data, and evaluation can be found [here](https://efficientqa.github.io/task_definition.html).
 
 
@@ -69,8 +66,8 @@ or extract them from a corpus of text. You can find the tutorial
 
 |                                 |                                                                   |
 |:--------------------------------|:------------------------------------------------------------------|
-| **August, 2020**                  | Leaderboard launched.                                             |
-| **October 14, 2020**            | Leaderboard frozen.                                               |
+| **September 14, 2020**          | Leaderboard launched.                                             |
+| **November 1, 2020**            | Leaderboard frozen.                                               |
 | **November 14, 2020**           | Human evaluation completed and winners announced.                 |
 | **December 11-12, 2020** &emsp; | NeurIPS workshop and human-computer competition (held virtually). |
 
