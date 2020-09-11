@@ -57,20 +57,20 @@ mkdir ${EVAL_DIR}
 
 wget https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.efficientqa.dev.no-annotations.jsonl -P "${INPUT_DIR}"
 wget https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.efficientqa.dev.jsonl -P "${EVAL_DIR}"
-wget https://raw.githubusercontent.com/google-research/language/master/language/orqa/evaluation/evaluate_predictions.py -P "${EVAL_DIR}"
 
-IMAGE=gcr.io/<your_project_id>/<your_image_name>:<your_image_tag> # see below for instructions
-
-docker pull ${IMAGE}
+docker pull gcr.io/<your_project_id>/<your_image_name>:<your_image_tag>
 docker run -v ${INPUT_DIR}:/input -v ${OUTPUT_DIR}:/output \
-  ${IMAGE} bash \
+  gcr.io/<your_project_id>/<your_image_name>:<your_image_tag> \
   /submission.sh \
   /input/NQ-open.efficientqa.dev.no-annotations.jsonl \
   /output/predictions.jsonl
 
-python3 ${EVAL_DIR}/evaluate_predictions.py \
-  --references_path=${INPUT_DIR}/NQ-open.efficientqa.dev.no-annotations.jsonl \
-  --predictions_path=${EVAL_DIR}/NQ-open.efficientqa.dev.jsonl
+cd ${EVAL_DIR}
+git clone https://github.com/google-research/language.git
+pip3 install tensorflow
+python3 -m language.orqa.evaluation.evaluate_predictions \
+  --references_path=${EVAL_DIR}/NQ-open.efficientqa.dev.jsonl \
+  --predictions_path=${OUTPUT_DIR}/predictions.jsonl
 ```
 
 and ensure that you have set the permissions correctly, as
@@ -94,8 +94,8 @@ sure you test your submission with these examples as input.
 
 ```sh
 INPUT_DIR=~/efficientqa_input
-mkdir "${INPUT_DIR}"
-wget https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.efficientqa.dev.no-annotations.jsonl "${INPUT_DIR}"
+mkdir ${INPUT_DIR}
+wget https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.efficientqa.dev.no-annotations.jsonl -P ${INPUT_DIR}
 ```
 
 Create a submission directory and follow the instructions to download and export
