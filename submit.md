@@ -155,8 +155,8 @@ def main(_):
     with open(FLAGS.input_path) as fin:
       for l in fin:
         example = json.loads(l)
-        predict_request = {{'{{"inputs": ["nq question: {0}?"]}}'}}.format(
-            example['question']).encode('utf-8')
+        predict_request = {% raw %}'{{"inputs": ["nq question: {0}?"]}}'.format(
+            example['question']).encode('utf-8'){% endraw %}
         response = requests.post(server_url, data=predict_request)
         response.raise_for_status()
         predicted_answer = response.json()['outputs']['outputs'][0]
