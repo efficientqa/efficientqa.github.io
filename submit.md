@@ -264,7 +264,9 @@ Please don't override the `du` command. We will also use other methods of
 checking the size of your submission, and will remove any submissions that have
 modified the standard definition of `du`.
 
-Now you are ready to upload your submission to be run on the test set.
+Evaluate your predictions using the instructions above, to ensure that they are
+in the correct format and that the accuracy is as expected. If everything looks
+good locally, you are ready to upload your image to the submission system.
 Instructions below.
 
 ## Uploading submissions and submitting to test
@@ -302,3 +304,7 @@ gcloud builds submit --tag gcr.io/<your_project_id>/${MODEL}:${MODEL_TAG} .
 
 And you can then submit this image by following the instructions on the
 [leaderboard submission page](https://ai.google.com/research/NaturalQuestions/efficientqa/participate).
+
+We suggest that you first run your submission with the `test` option, to
+ensure that it runs on a 100 example dev-set sample, before submitting an
+`official` attempt.
