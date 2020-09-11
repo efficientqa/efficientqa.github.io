@@ -178,7 +178,7 @@ We can test this locally using the tensorflow-serving Docker image.
 
 ```sh
 docker pull tensorflow/serving:nightly
-docker run -t --rm -p 8501:8501
+docker run -t --rm -p 8501:8501 \
   -v ${MODEL_DIR}:/models -e MODEL_NAME=${MODEL} tensorflow/serving:nightly &
 
 python3 "${SRC_DIR}" \
