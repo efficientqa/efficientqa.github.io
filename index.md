@@ -14,11 +14,20 @@ constraints. The best performing systems from each of the tracks will be put to
 test in a live competition against trivia experts during the [NeurIPS 2020
 competition track](https://neurips.cc/Conferences/2020/CompetitionTrack).
 
-We have provided [tutorials on baselines](https://efficientqa.github.io/getting_started.html) with
-a number of different sized baseline models.
-To be notified when the leaderboard is launched, in July 2020, and for up to
-date information on the competition and workshop, please [sign up to our mailing
-list](https://efficientqa.github.io/sign_up_for_notifications.html).
+All submissions to the *memory constrained* tracks must be made to the
+[EfficientQA leaderboard](https://ai.google.com/research/NaturalQuestions/efficientqa)
+before 2020/10/31. Once the leaderboard is closed, the test set inputs will 
+be released and participants will be given until the end of 2020/11/03 to submit
+predictions to the *unconstrained* track. To recieve notifications regarding this
+process,  please
+[sign up to our mailing list](https://efficientqa.github.io/sign_up_for_notifications.html).
+
+We have provided
+[tutorials on baseline systems](https://efficientqa.github.io/getting_started.html)
+as well as a complete
+[guide to making a submission](https://efficientqa.github.io/getting_started.html).
+If you have any questions, please
+[create an issue in this repository](https://github.com/efficientqa/efficientqa.github.io/issues).
 
 ## Competition Overview
 
