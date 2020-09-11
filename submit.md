@@ -181,7 +181,7 @@ docker pull tensorflow/serving:nightly
 docker run -t --rm -p 8501:8501 \
   -v ${MODEL_DIR}:/models -e MODEL_NAME=${MODEL} tensorflow/serving:nightly &
 
-python3 "${SRC_DIR}" \
+python3 "${SRC_DIR}/predict.py" \
   --input_path="${INPUT_DIR}/NQ-open.efficientqa.dev.no-annotations.jsonl" \
   --output_path="/tmp/predictions.jsonl"
 ```
