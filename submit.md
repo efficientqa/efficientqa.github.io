@@ -214,7 +214,7 @@ python predict.py --model_path="/v1/models/${MODEL_NAME}" \
 echo 'Done predicting.'
 ```
 
-Make sure that `submission.sh` is executable, and then build a Docker image that
+Make sure that `submission.sh` is executable, and then create the following dockerfile in `${SUBMISSION_DIR}/Dockerfile`. This defines a Docker image that
 contains all of our code, libraries, and data.
 
 ```dockerfile
