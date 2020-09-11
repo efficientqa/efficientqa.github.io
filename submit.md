@@ -10,8 +10,8 @@ All submissions to the *restricted* tracks must be submitted to the
 You can also submit to the *unrestricted* track using the EfficientQA
 leaderboard. However, if your system will not run on the leaderboard hardware,
 we will also release the test set input on 2020/11/01, after the leaderboard is
-frozen, and you will have 48 hours to send predictions to be evaluated for the
-*unrestricted* track only.
+frozen, and you will have until the end of 2020/11/03 to send predictions to be
+evaluated for the *unrestricted* track only.
 
 EfficientQA leaderboard submissions are Docker images, uploaded to the
 [Google Container Registry](https://cloud.google.com/container-registry).
