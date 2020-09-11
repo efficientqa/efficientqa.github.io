@@ -1,6 +1,4 @@
-:information_source: | Create and view submissions at the [EfficientQA leaderboard](https://ai.google.com/research/NaturalQuestions/efficientqa)
-:---: | :---
-
+**Create and view submissions at the [EfficientQA leaderboard](https://ai.google.com/research/NaturalQuestions/efficientqa)**
 
 Open domain question answering is emerging as a benchmark method of measuring
 computational systems' abilities to read, represent, and retrieve knowledge
