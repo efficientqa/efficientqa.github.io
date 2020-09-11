@@ -95,9 +95,7 @@ sure you test your submission with these examples as input.
 ```sh
 INPUT_DIR=~/efficientqa_input
 mkdir "${INPUT_DIR}"
-cd "${INPUT_DIR}"
-wget https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.efficientqa.dev.no-annotations.jsonl
-cd
+wget https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.efficientqa.dev.no-annotations.jsonl "${INPUT_DIR}"
 ```
 
 Create a submission directory and follow the instructions to download and export
