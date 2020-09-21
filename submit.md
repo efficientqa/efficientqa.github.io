@@ -13,6 +13,13 @@ we will also release the test set input on 2020/11/01, after the leaderboard is
 frozen, and you will have until the end of 2020/11/03 to send predictions to be
 evaluated for the *unrestricted* track only.
 
+This page contains general submission instructions as well as end-to-end walk-through instructions for submitting:
+
+* [T5](https://efficientqa.github.io/getting_started.html#parametric), which is a sequence to sequence model that generates answers directly.
+* The [ORQA](https://github.com/google-research/language/tree/master/language/orqa)-based [REALM](https://github.com/google-research/language/tree/master/language/realm) model, which retrieves evidence passages using a [ScaNN](https://ai.googleblog.com/2020/07/announcing-scann-efficient-vector.html) index.
+
+## General instructions
+
 EfficientQA leaderboard submissions are Docker images, uploaded to the
 [Google Container Registry](https://cloud.google.com/container-registry).
 Submissions must contain an executable script `/submission.sh` that will be run
@@ -43,8 +50,10 @@ as follows:
 ```
 
 The Docker image containing `/submission.sh` must be fully self contained. It
-will not be allowed to pull in libraries or any other external resources. Before
-submitting your image, please test it locally using the following commands
+will not be allowed to pull in libraries or any other external resources.
+
+### Testing submissions
+Before submitting your image, please test it locally using the following commands
 
 ```sh
 INPUT_DIR=/tmp/efficientqa_input
@@ -76,8 +85,46 @@ python3 -m language.orqa.evaluation.evaluate_predictions \
 and ensure that you have set the permissions correctly, as
 [detailed below](#uploading-submissions-and-submitting-to-test).
 
-Below, we have given a walk-through tutuorial for building a submission using
-the T5-small baseline.
+### Uploading submissions and submitting to test
+
+Test submissions are run using Google Cloud, and you will need to create a
+Google Cloud Platform account at <cloud.google.com>. This account will be used
+to store you submissions and, while storage costs should be negligible, we
+encourage all participahts to make use of
+[Google Cloud's free credits](https://cloud.google.com/free). We will not charge
+you for the cost of running your submissions.
+
+Once you have a Google Cloud account, you will need to create a project for your
+submissions in your console, and you will need to give us permission to access
+this project as follows:
+
+1.  Go to the storage tab in the your console.
+2.  Locate the artifacts bucket. It should have a name like
+    `artifacts.<project-name>.appspot.com`.
+3.  From this bucket's drop-down menu, select "Edit bucket permissions".
+4.  Grant "Storage Object Viewer" permissions to
+    mljam-compute@mljam-205019.iam.gserviceaccount.com. You can find this option
+    under "Storage" when selecting roles for new members.
+
+Now you can either upload your submission directly, or you can use the
+[Cloud SDK](https://cloud.google.com/sdk/install) to build it as follows.
+
+```sh
+cd "${SUBMISSION_DIR}"
+MODEL_TAG=latest
+gcloud auth login
+gcloud config set project <your_project_id>
+gcloud services enable cloudbuild.googleapis.com
+gcloud builds submit --tag gcr.io/<your_project_id>/${MODEL}:${MODEL_TAG} .
+```
+
+And you can then submit this image by following the instructions on the
+[leaderboard submission page](https://ai.google.com/research/NaturalQuestions/efficientqa/participate).
+
+We suggest that you first run your submission with the `test` option, to
+ensure that it runs on a 100 example dev-set sample, before submitting an
+`official` attempt.
+
 
 ## Walk-through instructions for creating T5 submission.
 
@@ -267,44 +314,134 @@ modified the standard definition of `du`.
 Evaluate your predictions using the instructions above, to ensure that they are
 in the correct format and that the accuracy is as expected. If everything looks
 good locally, you are ready to upload your image to the submission system.
-Instructions below.
+Instructions above.
 
-## Uploading submissions and submitting to test
+## Walk-through instructions for the ORQA-based REALM model
 
-Test submissions are run using Google Cloud, and you will need to create a
-Google Cloud Platform account at <cloud.google.com>. This account will be used
-to store you submissions and, while storage costs should be negligible, we
-encourage all participahts to make use of
-[Google Cloud's free credits](https://cloud.google.com/free). We will not charge
-you for the cost of running your submissions.
+This is an example of upload an ORQA-based model to EfficientQA. Unlike the T5
+tutorial above, it's much less optimized in that it keeps many unnecessary
+dependencies and doesn't use the provided GPUs.
 
-Once you have a Google Cloud account, you will need to create a project for your
-submissions in your console, and you will need to give us permission to access
-this project as follows:
+### Working directory
+Your working directory should look like this by the time you build the docker:
 
-1.  Go to the storage tab in the your console.
-2.  Locate the artifacts bucket. It should have a name like
-    `artifacts.<project-name>.appspot.com`.
-3.  From this bucket's drop-down menu, select "Edit bucket permissions".
-4.  Grant "Storage Object Viewer" permissions to
-    mljam-compute@mljam-205019.iam.gserviceaccount.com. You can find this option
-    under "Storage" when selecting roles for new members.
-
-Now you can either upload your submission directly, or you can use the
-[Cloud SDK](https://cloud.google.com/sdk/install) to build it as follows.
-
-```sh
-cd "${SUBMISSION_DIR}"
-MODEL_TAG=latest
-gcloud auth login
-gcloud config set project <your_project_id>
-gcloud services enable cloudbuild.googleapis.com
-gcloud builds submit --tag gcr.io/<your_project_id>/${MODEL}:${MODEL_TAG} .
+```
+Dockerfile
+src/
+  language/
+    common/
+      ...
+    orqa/
+      ...
+model
+  params.json
+  blocks.tfr
+  bert/
+    ...
+  embedder/
+    ...
+  export/
+    best_default/
+      checkpoint/
+        ...
+submission.sh
+compile_custom_ops.sh
 ```
 
-And you can then submit this image by following the instructions on the
-[leaderboard submission page](https://ai.google.com/research/NaturalQuestions/efficientqa/participate).
+### Core source code
+Download the language repository which contains the ORQA code and remove
+everything at the top level that isn't either `common` or `orqa`:
+```
+git clone git@github.com:google-research/language.git
+rm -r -v !("common"|"orqa")
+```
 
-We suggest that you first run your submission with the `test` option, to
-ensure that it runs on a 100 example dev-set sample, before submitting an
-`official` attempt.
+### Model
+Download the model corresponding to the `model_dir` flag in the ORQA codebase
+(see the README in
+https://github.com/google-research/language/tree/master/language/orqa for
+details).
+
+The ORQA model fine-tuned from REALM pre-training can be found on Google
+Cloud Storage: `gs://realm-data/orqa_nq_model_from_realm`.
+
+`params.json` in the model directory containings paths to important files that
+are typically on GCS. Since EfficientQA does not permit downloading from the
+internet, we need to download those files and rewrite those paths to local
+directories. This includes the files `block_records_path` (which contains the
+Wikipedia text), `reader_module_path`, and `retriever_module_path`. For example
+since the original `params.json` contains
+
+```
+"block_records_path": "gs://orqa-data/enwiki-20181220/blocks.tfr",
+```
+
+We would need to run
+
+```
+gsutil cp gs://orqa-data/enwiki-20181220/blocks.tfr .
+```
+
+and rewrite that line as:
+```
+"block_records_path": "blocks.tfr",
+```
+
+### Submission script
+
+`submission.sh` should contain the following command:
+
+```
+python3.7 -m language.orqa.predict.orqa_predict \
+  --dataset_path=$1 \
+  --predictions_path=$2 \
+  --print_prediction_samples=false \
+  --model_dir=/
+```
+
+### Custom op compilation script
+ORQA uses a few custom ops written in C++ that should be compiled in the Docker
+environment. `compile_custom_ops.sh` should contain:
+
+```
+#!/bin/bash
+
+TF_CFLAGS=( $(python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_compile_flags()))') )
+TF_LFLAGS=( $(python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_link_flags()))') )
+g++ -std=c++11 -shared language/orqa/ops/orqa_ops.cc -o language/orqa/ops/orqa_ops.so -fPIC ${TF_CFLAGS[@]} ${TF_LFLAGS[@]} -O2
+```
+
+### Dockerfile
+Finally we can put everything together into the `Dockerfile`.
+
+```
+FROM tensorflow/tensorflow:2.1.1-gpu
+
+COPY src /
+COPY model /
+COPY compile_custom_ops.sh /
+COPY submission.sh /
+
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test && \
+    apt-get update && \
+    apt-get upgrade -y libstdc++6
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ca-certificates && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+RUN add-apt-repository ppa:deadsnakes/ppa && apt-get update && apt-get install -y python3.7
+RUN python3.7 -m pip install --upgrade pip
+RUN pip install tensorflow-text~=2.1.0
+RUN pip install tf-models-official==2.1.0.dev2
+RUN pip install bert-tensorflow==1.0.4
+RUN pip install tf-hub-nightly
+RUN pip install sentencepiece==0.1.91
+RUN pip install https://storage.googleapis.com/scann/releases/1.0.0/scann-1.0.0-cp37-cp37m-linux_x86_64.whl
+RUN ./compile_custom_ops.sh
+```
+
+Unfortunately in order to ScaNN (Google's MIPS library), we need to upgrade
+`libstdc++6` and that somehow interferes with the ability to use GPUs.
+
+### Making the submission
+Once everything is in place, you should follow the [instructions above](Uploading_submissions_and_submitting_to_test) to build your image and submit it to the EfficientQA leaderboard.
