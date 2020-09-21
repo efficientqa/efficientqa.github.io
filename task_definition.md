@@ -39,8 +39,8 @@ evaluation. We will perform final evaluation of all systems using a new,
 previously unseen, test set that is drawn from the same distribution as the
 development set.
 
-You can get the processed training and development sets from our [data
-repository](https://github.com/efficientqa/nq-open).
+You can get the processed training and development sets from the NQ-open [data
+repository](https://github.com/google-research-datasets/natural-questions/tree/master/nq_open).
 
 ### Other Data
 Aside from the task-specific data provided above, submissions may make use of
@@ -48,8 +48,8 @@ any other data that is publicly available.
 
 We know that all of the questions in our evaluation set are answerable using
 Wikipedia, and we expect most participants will make use of Wikipedia as a
-retrieval corpus, pre-training dataset, or both. [Previous
-work](https://github.com/efficientqa/nq-open) has also made use of the [WikiData
+retrieval corpus, pre-training dataset, or both. Previous
+work has also made use of the [WikiData
 knowledge graph](https://www.wikidata.org/), and that is encouraged.
 
 Participants may use any other public data resources, including other question
