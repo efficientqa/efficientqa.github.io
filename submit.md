@@ -444,4 +444,4 @@ Unfortunately in order to ScaNN (Google's MIPS library), we need to upgrade
 `libstdc++6` and that somehow interferes with the ability to use GPUs.
 
 ### Making the submission
-Once everything is in place, you should follow the [instructions above](Uploading_submissions_and_submitting_to_test) to build your image and submit it to the EfficientQA leaderboard.
+Once everything is in place, you should follow the [instructions above](https://efficientqa.github.io/submit.html#uploading-submissions-and-submitting-to-test) to build your image and submit it to the EfficientQA leaderboard.
