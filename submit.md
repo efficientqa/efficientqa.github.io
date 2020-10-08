@@ -304,7 +304,7 @@ docker run -v "${INPUT_DIR}:/input" -v "/tmp:/output" "${MODEL}" bash \
 And you can find the size of the image as follows.
 
 ```sh
-docker run "${MODEL}" du -h
+docker run "${MODEL}" du -h /
 ```
 
 Please don't override the `du` command. We will also use other methods of
