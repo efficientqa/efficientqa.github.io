@@ -64,21 +64,21 @@ mkdir ${INPUT_DIR}
 mkdir ${OUTPUT_DIR}
 mkdir ${EVAL_DIR}
 
-wget https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.efficientqa.dev.no-annotations.jsonl -P "${INPUT_DIR}"
-wget https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.efficientqa.dev.jsonl -P "${EVAL_DIR}"
+wget https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.efficientqa.dev.1.1.no-annotations.jsonl -P "${INPUT_DIR}"
+wget https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.efficientqa.dev.1.1.jsonl -P "${EVAL_DIR}"
 
 docker pull gcr.io/<your_project_id>/<your_image_name>:<your_image_tag>
 docker run -v ${INPUT_DIR}:/input -v ${OUTPUT_DIR}:/output \
   gcr.io/<your_project_id>/<your_image_name>:<your_image_tag> \
   /submission.sh \
-  /input/NQ-open.efficientqa.dev.no-annotations.jsonl \
+  /input/NQ-open.efficientqa.dev.1.1.no-annotations.jsonl \
   /output/predictions.jsonl
 
 cd ${EVAL_DIR}
 git clone https://github.com/google-research/language.git
 pip3 install tensorflow
 python3 -m language.orqa.evaluation.evaluate_predictions \
-  --references_path=${EVAL_DIR}/NQ-open.efficientqa.dev.jsonl \
+  --references_path=${EVAL_DIR}/NQ-open.efficientqa.dev.1.1.jsonl \
   --predictions_path=${OUTPUT_DIR}/predictions.jsonl
 ```
 
