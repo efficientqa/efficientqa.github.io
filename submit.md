@@ -68,7 +68,7 @@ wget https://raw.githubusercontent.com/google-research-datasets/natural-question
 wget https://raw.githubusercontent.com/google-research-datasets/natural-questions/master/nq_open/NQ-open.efficientqa.dev.jsonl -P "${EVAL_DIR}"
 
 docker pull gcr.io/<your_project_id>/<your_image_name>:<your_image_tag>
-docker run -v ${INPUT_DIR}:/input -v ${OUTPUT_DIR}:/output \
+docker run --network="none" -v ${INPUT_DIR}:/input -v ${OUTPUT_DIR}:/output \
   gcr.io/<your_project_id>/<your_image_name>:<your_image_tag> \
   /submission.sh \
   /input/NQ-open.efficientqa.dev.no-annotations.jsonl \
