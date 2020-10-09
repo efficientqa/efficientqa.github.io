@@ -22,11 +22,11 @@ This page contains general submission instructions as well as end-to-end walk-th
 
 EfficientQA leaderboard submissions are Docker images, uploaded to the
 [Google Container Registry](https://cloud.google.com/container-registry).
-Submissions must contain an executable script `/submission.sh` that will be run
+Submissions must contain an executable script `~/submission.sh` that will be run
 with the following command.
 
 ```sh
-/submission.sh <input_file> <output_file>
+./submission.sh <input_file> <output_file>
 ```
 
 Where `<input_file>` contains one JSON example per line, where each example only
@@ -71,7 +71,7 @@ docker pull gcr.io/<your_project_id>/<your_image_name>:<your_image_tag>
 docker run -v ${INPUT_DIR}:/input -v ${OUTPUT_DIR}:/output \
   --network="none" \
   gcr.io/<your_project_id>/<your_image_name>:<your_image_tag> \
-  /submission.sh \
+  ./submission.sh \
   /input/NQ-open.efficientqa.dev.no-annotations.jsonl \
   /output/predictions.jsonl
 
