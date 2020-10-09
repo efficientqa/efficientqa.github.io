@@ -18,8 +18,8 @@ competition track](https://neurips.cc/Conferences/2020/CompetitionTrack).
 
 All submissions to the *memory constrained* tracks must be made to the
 [EfficientQA leaderboard](https://ai.google.com/research/NaturalQuestions/efficientqa)
-before 2020/10/31. Once the leaderboard is closed, the test set inputs will 
-be released and participants will be given until the end of 2020/11/03 to submit
+before 2020/11/14. Once the leaderboard is closed, the test set inputs will 
+be released and participants will be given until the end of 2020/11/17 to submit
 predictions to the *unconstrained* track. To recieve notifications regarding this
 process,  please
 [sign up to our mailing list](https://efficientqa.github.io/sign_up_for_notifications.html).
@@ -56,16 +56,23 @@ the goal is to build:
 * the smallest self-contained question answering system that achieves 25%
   accuracy.
 
-More information on the task definition, data, and evaluation can be found [here](https://efficientqa.github.io/task_definition.html).
+More information on the task definition, data, and evaluation can be found
+[here](https://efficientqa.github.io/task_definition.html).
 
+### Competition prizes
+Each of the *restricted* tracks comes with a prize of approximately $3000
+in Google Cloud credits. Each submitter can win at most one track. Please 
+go to the leaderboard site for full
+[terms and conditions](https://ai.google.com/research/NaturalQuestions/efficientqa/termsAndConditions).
 
 ### Human Evaluation
 
 In practice, five reference answers are sometimes not enough---there are a lot
 of ways in which an answer can be phrased, and sometimes there are multiple
 valid answers. At the end of this competition's submission period, predictions from the
-best performing systems will be checked by humans. The final ranking will be
-performed on the basis of this human eval.
+best performing systems will be checked by humans. This human evaluation will be used
+to calculate an alternate ranking, which will be presented along with the automatic 
+leaderboard rank at NeurIPS 2020.
 
 ## Baseline Systems
 We have provided a tutorial for getting started with
@@ -78,8 +85,8 @@ or extract them from a corpus of text. You can find the tutorial
 |                                 |                                                                   |
 |:--------------------------------|:------------------------------------------------------------------|
 | **September 14, 2020**          | Leaderboard launched.                                             |
-| **November 1, 2020**            | Leaderboard frozen.                                               |
-| **November 14, 2020**           | Human evaluation completed and winners announced.                 |
+| **November 14, 2020**           | Leaderboard frozen.                                               |
+| **November 30, 2020**           | Human evaluation completed and results announced.                 |
 | **December 11-12, 2020** &emsp; | NeurIPS workshop and human-computer competition (held virtually). |
 
 ## Organizers
