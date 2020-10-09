@@ -19,7 +19,8 @@ submissions on a leaderboard.
 At the completion of the submission period, predictions from the top ranked
 systems on the leaderboard will be sent to human raters, to identify correct
 predictions that did not appear in the set of reference answers. The human
-verified accuracy will be used to determine each track's winners.
+verified accuracy will be used to re-rank each track's winners and this 
+re-ranking will be presented and discussed at the NeurIPS 2020 event.
 
 More complete details of this competition's data and evaluation are given
 below. To receive notification of the leaderboard's launch, planned for July
