@@ -9,8 +9,8 @@ All submissions to the *restricted* tracks must be submitted to the
 [EfficientQA leaderboard](https://ai.google.com/research/NaturalQuestions/efficientqa).
 You can also submit to the *unrestricted* track using the EfficientQA
 leaderboard. However, if your system will not run on the leaderboard hardware,
-we will also release the test set input on 2020/11/01, after the leaderboard is
-frozen, and you will have until the end of 2020/11/03 to send predictions to be
+we will also release the test set input on 2020/11/15, after the leaderboard is
+frozen, and you will have until the end of 2020/11/17 to send predictions to be
 evaluated for the *unrestricted* track only.
 
 This page contains general submission instructions as well as end-to-end walk-through instructions for submitting:
