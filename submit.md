@@ -164,11 +164,15 @@ pip install -qU t5
 MODEL=t5.1.1.small_ssm_nq
 #MODEL=t5.1.1.xl_ssm_nq
 
+git clone https://github.com/google-research/google-research.git
+cd google-research/t5_closed_book_qa
+
 # Export the model.
-t5_mesh_transformer \
+python -m t5.models.mesh_transformer_main \
+  --module_import="t5_cbqa.tasks" \
   --model_dir="gs://t5-data/pretrained_models/cbqa/${MODEL}" \
   --use_model_api \
-  --mode="export" \
+  --mode="export_predict" \
   --export_dir="${MODEL_DIR}/${MODEL}"
 ```
 
@@ -295,7 +299,7 @@ ADD models models/
 Build and then test this Docker image.
 
 ```sh
-docker build --tag "$MODEL" "${SUBMISSION_DIR}/."
+docker build --tag "${MODEL}" "${SUBMISSION_DIR}/."
 docker run -v "${INPUT_DIR}:/input" -v "/tmp:/output" "${MODEL}" bash \
   "submission.sh" \
   "input/NQ-open.efficientqa.dev.no-annotations.jsonl" \
