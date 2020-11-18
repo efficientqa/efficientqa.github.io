@@ -1,3 +1,8 @@
+Results for all submissions to the EfficientQA task.
+
+TODO(tomkwiat): Unify with [automatic leaderboard](https://ai.google.com/research/NaturalQuestions/efficientqa).
+
+
 | Model                            | Participant                          | Affiliation                                          | System size<br>\* = self-reported | Accuracy |
 | -------------------------------- | ------------------------------------ | ---------------------------------------------------- | --------------------------------- | -------- |
 | UnitedQA                         | Microsoft Research & Dynamics 365 AI | Microsoft Research & Dynamics 365 AI                 | \--                               | 54.00    |
