@@ -4,7 +4,7 @@
 | Hybrid                           | QA@FBAI                              | Facebook AI                                          | \--                       | \--                | 53.89    |
 | Model 2                          | FAIR-Paris&London                    | Facebook                                             | 5.85 GiB                  | \--                | 53.33    |
 | Model 1                          | FAIR-Paris&London                    | Facebook                                             | 5.66 GiB                  | \--                | 52.78    |
-| soseki                           | ousia\_tohoku                        | Studio Ousia & Tohoku University                     | \--                       | \--                | 52.44    |
+| Soseki                           | ousia\_tohoku                        | Studio Ousia & Tohoku University                     | \--                       | \--                | 52.44    |
 | R2D2\_v2\_full                   | KNOT@FIT                             | Brno University of Technology                        | \--                       | 66 GiB             | 50.33    |
 | Soseki                           | ousia\_tohoku                        | Studio Ousia & Tohoku University                     | 5.63 GiB                  | \--                | 50.17    |
 | Soseki                           | ousia\_tohoku                        | Studio Ousia & Tohoku University                     | 4.86 GiB                  | \--                | 50.11    |
