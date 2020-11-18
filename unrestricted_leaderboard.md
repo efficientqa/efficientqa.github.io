@@ -1,7 +1,7 @@
 | Model                            | Participant                          | Affiliation                                          | Leaderboard reported size | Self reported size | Accuracy |
 | -------------------------------- | ------------------------------------ | ---------------------------------------------------- | ------------------------- | ------------------ | -------- |
 | UnitedQA                         | Microsoft Research & Dynamics 365 AI | Microsoft Research & Dynamics 365 AI                 | \--                       | \--                | 54.00    |
-| Hybrid                           | Facebook AI                          | Facebook AI                                          | \--                       | \--                | 53.89    |
+| Hybrid                           | QA@FBAI                              | Facebook AI                                          | \--                       | \--                | 53.89    |
 | Model 2                          | FAIR-Paris&London                    | Facebook                                             | 5.85 GiB                  | \--                | 53.33    |
 | Model 1                          | FAIR-Paris&London                    | Facebook                                             | 5.66 GiB                  | \--                | 52.78    |
 | soseki                           | ousia\_tohoku                        | Studio Ousia & Tohoku University                     | \--                       | \--                | 52.44    |
