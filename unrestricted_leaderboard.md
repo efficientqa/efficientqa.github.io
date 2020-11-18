@@ -1,4 +1,4 @@
-| Model                            | Participant                          | Affiliation                                          | Size<br\>(\* indicates self-reported) | Accuracy |
+| Model                            | Participant                          | Affiliation                                          | Size<br>(\* indicates self-reported) | Accuracy |
 | -------------------------------- | ------------------------------------ | ---------------------------------------------------- | --------------------------------- | -------- |
 | UnitedQA                         | Microsoft Research & Dynamics 365 AI | Microsoft Research & Dynamics 365 AI                 | \--                               | 54.00    |
 | Hybrid                           | Facebook AI                          | QA@FBAI                                              | \--                               | 53.89    |
