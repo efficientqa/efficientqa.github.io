@@ -1,6 +1,6 @@
 Results for all submissions to the EfficientQA task.
 
-TODO(tomkwiat): Unify with [automatic leaderboard](https://ai.google.com/research/NaturalQuestions/efficientqa).
+TODO(tomkwiat): Clean up and unify with [automatic leaderboard](https://ai.google.com/research/NaturalQuestions/efficientqa).
 
 
 | Model                            | Participant                          | Affiliation                                          | System size<br>\* = self-reported | Accuracy |
