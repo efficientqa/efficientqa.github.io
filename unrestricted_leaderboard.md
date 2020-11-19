@@ -1,6 +1,7 @@
-Results for all submissions to the EfficientQA task.
+This leaderboard displays all results for submissions to the EfficientQA unrestricted track. It includes all systems that were submitted to the
+[official leaderboard](https://ai.google.com/research/NaturalQuestions/efficientqa), used for each of the EfficientQA restricted tracks, 
+as well as systems that were run outside of the leaderboard system.
 
-TODO(tomkwiat): Clean up and unify with [automatic leaderboard](https://ai.google.com/research/NaturalQuestions/efficientqa).
 
 
 | Model                            | Participant                          | Affiliation                                          | System size<br>\* = self-reported | Accuracy |
