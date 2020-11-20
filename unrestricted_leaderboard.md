@@ -23,7 +23,7 @@ as well as systems that were run outside of the leaderboard system.
 |                                  |                                      | Salesforce                                           | \*5.7 GiB                         | 45.83    |
 | CDPR-FID                         | BearQA                               | UC Berkley                                           | \--                               | 40.83    |
 | R1D1                             | KNOT@FIT                             | Brno University of Technology                        | 5.29 GiB                          | 40.56    |
-| uclnlp-fair-efficientqa-xlg      | uclnlp-efficientqa                   | University College London and Facebook AI Research   | \--                               | 39.11    |
+| uclnlp-fair-efficientqa-xlg      | uclnlp-efficientqa                   | University College London and Facebook AI Research   | \*1.16GiB                               | 39.11    |
 | DPR model serving using Vespa.ai | Vespa Team                           | Vespa.ai                                             | \--                               | 35.00    |
 | REALM                            | Orgainizers                          | EfficientQA                                          | 27.19 GiB                         | 34.89    |
 | uclnlp-fair-efficientqa-lg       | uclnlp-efficientqa                   | University College London and Facebook AI Research   | 336.23 MiB                        | 33.44    |
