@@ -1,5 +1,6 @@
-The EfficientQA competition has now completed. You can see all submissions to the restricted
-tracks on the
+**The EfficientQA competition has now completed.**
+
+You can see all submissions to the restricted tracks on the
 [restricted leaderboard](https://ai.google.com/research/NaturalQuestions/efficientqa).
 All submissions to both the restricted and unrestricted tracks are available on the 
 [unrestricted leaderboard](https://efficientqa.github.io/unrestricted_leaderboard.html).
@@ -19,6 +20,7 @@ The top performing teams from each track will present a brief description of the
 ##### 4.25pm - 4.45pm GMT - Trivia expert vs. computer showdown
 Five top human teams of trivia experts took on the competition’s baseline systems for the opportunity to take on the computer systems in each of the competition’s divisions. The team of humans will compete against the computer on thirty questions from the test set. We will present highlights from the preliminary competition as well as the final showdown between computer systems and the human teams.
 
+-----------------------------------------------------------------------------
 
 Open domain question answering is emerging as a benchmark method of measuring
 computational systems' abilities to read, represent, and retrieve knowledge
