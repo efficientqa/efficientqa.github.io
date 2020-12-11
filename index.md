@@ -23,9 +23,9 @@ Five top human teams of trivia experts took on the competition’s baseline syst
 Because our slot is limited, you can preview the human vs. computer showdown before the actual event!
 
  * Here's how the competition was set up
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/2S9ZN0K9cnY/0.jpg)](https://www.youtube.com/watch?v=2S9ZN0K9cnY)
+[![Link to human competition setup video](https://img.youtube.com/vi/2S9ZN0K9cnY/0.jpg =250x)](https://www.youtube.com/watch?v=2S9ZN0K9cnY)
  * Here are the preliminary results which selected the winning team for the final competition
- [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/2S9ZN0K9cnY/0.jpg)](https://www.youtube.com/watch?v=2S9ZN0K9cnY)
+ [![Link to human competition prelims](https://img.youtube.com/vi/b1wI1jwos5o/0.jpg =250x)](https://www.youtube.com/watch?v=b1wI1jwos5o)
 
 -----------------------------------------------------------------------------
 
