@@ -20,12 +20,10 @@ The top performing teams from each track will present a brief description of the
 ##### 4.25pm - 4.45pm GMT - Trivia expert vs. computer showdown
 Five top human teams of trivia experts took on the competition’s baseline systems for the opportunity to take on the computer systems in each of the competition’s divisions. The team of humans will compete against the computer on thirty questions from the test set. We will present highlights from the preliminary competition as well as the final showdown between computer systems and the human teams.
 
-Because our slot is limited, you can preview the human vs. computer showdown before the actual event!
+Because our slot is limited, you can watch (most of) the human vs. computer showdown videos before the actual event!
 
- * Here's how the competition was set up
-[![Link to human competition setup video](https://img.youtube.com/vi/2S9ZN0K9cnY/0.jpg)](https://www.youtube.com/watch?v=2S9ZN0K9cnY)
- * Here are the preliminary results which selected the winning team for the final competition
- [![Link to human competition prelims](https://img.youtube.com/vi/b1wI1jwos5o/0.jpg)](https://www.youtube.com/watch?v=b1wI1jwos5o)
+ * [Here's how the competition was set up](https://www.youtube.com/watch?v=2S9ZN0K9cnY)
+ * [Human competition prelims](https://www.youtube.com/watch?v=b1wI1jwos5o)
 
 -----------------------------------------------------------------------------
 
