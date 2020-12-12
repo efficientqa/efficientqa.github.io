@@ -25,6 +25,7 @@ Because our slot is limited, you can watch (most of) the human vs. computer show
  * [Here's how the competition was set up](https://www.youtube.com/watch?v=2S9ZN0K9cnY)
  * [Human competition prelims](https://www.youtube.com/watch?v=b1wI1jwos5o)
  * [Final vs. computer champions (1/3)](https://youtu.be/4vU5PF894_o)
+ * [Final vs. computer champions (2/3)](https://youtu.be/6ORjqwJMi18)
 
 -----------------------------------------------------------------------------
 
