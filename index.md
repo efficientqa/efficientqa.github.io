@@ -5,19 +5,20 @@ You can see all submissions to the restricted tracks on the
 All submissions to both the restricted and unrestricted tracks are available on the 
 [unrestricted leaderboard](https://efficientqa.github.io/unrestricted_leaderboard.html).
 
+-----------------------------------------------------------------------------
 
-Please come to our event at the
-[NeurIPS 2020 competition track](https://neurips.cc/virtual/2020/public/e_competitions.html)
-on **2020/12/12**.
+**Thank you for coming to our event at the [NeurIPS 2020 competition track](https://neurips.cc/virtual/2020/public/e_competitions.html) on 2020/12/12**.
 
-##### 4.00pm - 4.05pm GMT - Track introduction and presentation of results
+The full video of the event is available [here](https://youtu.be/3tdWV4vAf2I). Please stay tuned for a technical report!
+
+##### Part 1. Track introduction and presentation of results [[Video](https://youtu.be/3tdWV4vAf2I)]
 The competition organizers will give an overview of the EfficientQA competition, the results for each
 of the four tracks, and a post-hoc human analysis of each of the top performing systems' predictions.
 
-##### 4.05pm - 4.25pm GMT - System descriptions
+##### Part 2. System descriptions [[Video](https://youtu.be/3tdWV4vAf2I?t=193)]
 The top performing teams from each track will present a brief description of their submission. 
 
-##### 4.25pm - 4.45pm GMT - Trivia expert vs. computer showdown
+##### Part 3. Trivia expert vs. computer showdown [[Video](https://youtu.be/3tdWV4vAf2I?t=1612)]
 Five top human teams of trivia experts took on the competition’s baseline systems for the opportunity to take on the computer systems in each of the competition’s divisions. The team of humans will compete against the computer on thirty questions from the test set. We will present highlights from the preliminary competition as well as the final showdown between computer systems and the human teams.
 
 Because our slot is limited, you can watch (most of) the human vs. computer showdown videos before the actual event!
@@ -27,6 +28,19 @@ Because our slot is limited, you can watch (most of) the human vs. computer show
  * [Final vs. computer champions (1/3)](https://youtu.be/4vU5PF894_o)
  * [Final vs. computer champions (2/3), start here if you came from the NeurIPS teaser](https://youtu.be/6ORjqwJMi18)
  * [Final vs. computer champions (3/3)](https://youtu.be/cMOeao3CPJI)
+
+### Results & descriptions of the top systems
+
+| Track | Team | Video | Accuracy (auto) | Accuracy (human) |
+|---|---|---|---|---|
+| Unrestricted | Microsoft & Dynamics 365 | [link](https://youtu.be/3tdWV4vAf2I?t=213) | 54.00 | 65.80 |
+| Unrestricted | Facebook AI | [link](https://youtu.be/3tdWV4vAf2I?t=395) | 53.89 | 67.38 |
+| 6GB | FAIR-Paris&London | [link](https://youtu.be/3tdWV4vAf2I?t=619) | 53.33 | 65.18 |
+| 6GB | Studio Ousia & Tohoku University | [link](https://youtu.be/3tdWV4vAf2I?t=819) | 50.17 | 62.01 |
+| 6GB | Brno University of Technology | [link](https://youtu.be/3tdWV4vAf2I?t=1003) | 47.28 | 58.96 |
+| 500MB | UCL+Facebook AI | [link](https://youtu.be/3tdWV4vAf2I?t=1221) | 33.44 | 39.40 |
+| 500MB | Naver Clova | [link](https://youtu.be/3tdWV4vAf2I?t=1402) | 32.06 | 42.23 |
+| 25% smallest | UCL+Facebook AI | [link](https://youtu.be/3tdWV4vAf2I?t=1221) | 26.78 | 32.45 |
 
 -----------------------------------------------------------------------------
 
