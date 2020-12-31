@@ -32,7 +32,7 @@ Because our slot is limited, you can watch (most of) the human vs. computer show
 
 | Track | Team | Video | Accuracy (auto) | Accuracy (human) |
 |---|---|---|---|---|
-| Unrestricted | Microsoft & Dynamics 365 | [link](https://youtu.be/3tdWV4vAf2I?t=213) | 54.00 | 65.80 |
+| Unrestricted | Microsoft Research & Dynamics 365 | [link](https://youtu.be/3tdWV4vAf2I?t=213) | 54.00 | 65.80 |
 | Unrestricted | Facebook AI | [link](https://youtu.be/3tdWV4vAf2I?t=395) | 53.89 | 67.38 |
 | 6GB | FAIR-Paris&London | [link](https://youtu.be/3tdWV4vAf2I?t=619) | 53.33 | 65.18 |
 | 6GB | Studio Ousia & Tohoku University | [link](https://youtu.be/3tdWV4vAf2I?t=819) | 50.17 | 62.01 |
