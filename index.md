@@ -7,9 +7,11 @@ All submissions to both the restricted and unrestricted tracks are available on 
 
 -----------------------------------------------------------------------------
 
-**Update January 1st, 2021: Our technical report is available [here](https://tinyurl.com/efficientqa-report).**
+**Update July 23, 2021: Based on multiple requests, we have released the EfficientQA test data, with human ratings used in the report. You can find it [here](https://github.com/google-research-datasets/natural-questions/tree/master/nq_open).**
 
-**Update December 16th, 2020: Thank you for coming to our event at the [NeurIPS 2020 competition track](https://neurips.cc/virtual/2020/public/e_competitions.html) on 2020/12/12. The full video of the event is available [here](https://youtu.be/3tdWV4vAf2I). Stay tuned for a technical report!**
+**Update January 1, 2021: Our technical report is available [here](https://tinyurl.com/efficientqa-report).**
+
+**Update December 16, 2020: Thank you for coming to our event at the [NeurIPS 2020 competition track](https://neurips.cc/virtual/2020/public/e_competitions.html) on 2020/12/12. The full video of the event is available [here](https://youtu.be/3tdWV4vAf2I). Stay tuned for a technical report!**
 
 
 ##### Part 1. Track introduction and presentation of results [[Video](https://youtu.be/3tdWV4vAf2I)]
