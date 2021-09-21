@@ -7,6 +7,8 @@ All submissions to both the restricted and unrestricted tracks are available on 
 
 -----------------------------------------------------------------------------
 
+**Update August 8, 2021: Our paper is published in PMLR (Competitions and Demonstrations Track @NeurIPS2020). Please find the published version of the paper [here](http://proceedings.mlr.press/v133/min21a.html).**
+
 **Update July 23, 2021: Based on multiple requests, we have released the EfficientQA test data, with human ratings used in the report. You can find it [here](https://github.com/google-research-datasets/natural-questions/tree/master/nq_open).**
 
 **Update January 1, 2021: Our technical report is available [here](https://tinyurl.com/efficientqa-report).**
